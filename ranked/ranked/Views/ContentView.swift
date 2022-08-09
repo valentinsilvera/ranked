@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    var ballot: Ballot
+    
     var body: some View {
-        ScrollView {
-            NavigationLink(destination: VoteScreen()) {
-                HomeCardView()
-            }   
+        NavigationView {
+            Group {
+                NavigationLink(destination: VoteScreen(ballot: ballot)) {
+                    HomeCardView(ballot: ballot)
+                }
+            }
+            .navigationTitle("Home")
         }
-        .padding(12)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(ballot: onboardingBallot)
     }
 }

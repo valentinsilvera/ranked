@@ -8,18 +8,27 @@
 import SwiftUI
 
 struct VoteScreen: View {
+    var ballot: Ballot
+    
     var body: some View {
-        ZStack {
-            LinearGradient(colors: [.pink, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
-                .ignoresSafeArea()
-            
-            Text("Some text")
+        NavigationView {
+            ZStack {
+                LinearGradient(colors: [.pink, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .ignoresSafeArea()
+                
+                VStack(alignment: .leading) {
+                    Text(ballot.creator)
+                    Spacer()
+                }
+                
+            }
+            .navigationTitle(ballot.title)
         }
     }
 }
 
 struct VoteScreen_Previews: PreviewProvider {
     static var previews: some View {
-        VoteScreen()
+        VoteScreen(ballot: onboardingBallot)
     }
 }

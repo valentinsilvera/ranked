@@ -11,7 +11,7 @@ import SwiftUI
 struct rankedApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(ballot: onboardingBallot)
         }
     }
 }

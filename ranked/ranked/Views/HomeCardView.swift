@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeCardView: View {
+    var ballot: Ballot
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25, style: .continuous)
@@ -20,17 +22,17 @@ struct HomeCardView: View {
                         .resizable()
                         .frame(width: 32, height: 32)
                     
-                    Text(onboardingBallot.title)
+                    Text(ballot.title)
                         .font(.title2)
                     
-                    Text("by \(onboardingBallot.creator)")
+                    Text("by \(ballot.creator)")
                         .font(.callout)
                 }
                 
                 Spacer()
                 
                 VStack{
-                    if onboardingBallot.votedOn {
+                    if ballot.votedOn {
                         Image(systemName: "checkmark.circle.fill")
                             .resizable()
                             .frame(width: 24, height: 24)
@@ -46,11 +48,12 @@ struct HomeCardView: View {
             .padding(12)
             .foregroundColor(.white)
         }
+        .padding(12)
     }
 }
 
 struct HomeCardView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeCardView()
+        HomeCardView(ballot: onboardingBallot)
     }
 }
