@@ -17,8 +17,11 @@ struct VoteScreen: View {
                     .ignoresSafeArea()
                 
                 VStack(alignment: .leading) {
-                    Text(ballot.creator)
+                    Text("by \(ballot.creator)")
                     Spacer()
+                    ForEach(ballot.options, id: \.self) {option in
+                        Text(option.name)
+                    }
                 }
                 
             }

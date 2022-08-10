@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A700F52B28A3ACD60045FE8F /* OptionDropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700F52A28A3ACD60045FE8F /* OptionDropDelegate.swift */; };
 		A716DE28289C1DA600D65C8A /* RankedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE27289C1DA600D65C8A /* RankedApp.swift */; };
 		A716DE2A289C1DA600D65C8A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE29289C1DA600D65C8A /* ContentView.swift */; };
 		A716DE2C289C1DA800D65C8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A716DE2B289C1DA800D65C8A /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 		A716DE45289C1DA800D65C8A /* rankedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE44289C1DA800D65C8A /* rankedUITestsLaunchTests.swift */; };
 		A716DE52289C1DEB00D65C8A /* HomeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE51289C1DEB00D65C8A /* HomeCardView.swift */; };
 		A716DE56289C21E300D65C8A /* Ballot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE55289C21E300D65C8A /* Ballot.swift */; };
+		A770012228A3E9B300DB4F23 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = A770012128A3E9B300DB4F23 /* Option.swift */; };
 		A7C0C18C289C2D2E0058501F /* VoteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0C18B289C2D2E0058501F /* VoteScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A700F52A28A3ACD60045FE8F /* OptionDropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionDropDelegate.swift; sourceTree = "<group>"; };
 		A716DE24289C1DA600D65C8A /* ranked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ranked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A716DE27289C1DA600D65C8A /* RankedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankedApp.swift; sourceTree = "<group>"; };
 		A716DE29289C1DA600D65C8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		A716DE44289C1DA800D65C8A /* rankedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rankedUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A716DE51289C1DEB00D65C8A /* HomeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardView.swift; sourceTree = "<group>"; };
 		A716DE55289C21E300D65C8A /* Ballot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ballot.swift; sourceTree = "<group>"; };
+		A770012128A3E9B300DB4F23 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		A7C0C18B289C2D2E0058501F /* VoteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				A716DE55289C21E300D65C8A /* Ballot.swift */,
+				A770012128A3E9B300DB4F23 /* Option.swift */,
+				A700F52A28A3ACD60045FE8F /* OptionDropDelegate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -282,11 +288,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A700F52B28A3ACD60045FE8F /* OptionDropDelegate.swift in Sources */,
 				A716DE2A289C1DA600D65C8A /* ContentView.swift in Sources */,
 				A7C0C18C289C2D2E0058501F /* VoteScreen.swift in Sources */,
 				A716DE28289C1DA600D65C8A /* RankedApp.swift in Sources */,
 				A716DE52289C1DEB00D65C8A /* HomeCardView.swift in Sources */,
 				A716DE56289C21E300D65C8A /* Ballot.swift in Sources */,
+				A770012228A3E9B300DB4F23 /* Option.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +453,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ranked/Preview Content\"";
-				DEVELOPMENT_TEAM = 83946B895X;
+				DEVELOPMENT_TEAM = TR5Z37W278;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -458,7 +466,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.valentinsilvera.rank;
+				PRODUCT_BUNDLE_IDENTIFIER = com.valentinsilvera.ranked;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -474,7 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ranked/Preview Content\"";
-				DEVELOPMENT_TEAM = 83946B895X;
+				DEVELOPMENT_TEAM = TR5Z37W278;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -487,7 +495,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.valentinsilvera.rank;
+				PRODUCT_BUNDLE_IDENTIFIER = com.valentinsilvera.ranked;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

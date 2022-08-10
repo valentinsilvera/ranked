@@ -7,20 +7,17 @@
 
 import Foundation
 
-struct Ballot {
+struct Ballot{
+    let id: Int
     let title: String
-    let options: [String]
+    let options: [Option]
     let votes: [String]
     let creator: String
-    let dateCreated = Date()
+    var dateCreated = Date()
     let deadline: Date?
     var isClosed: Bool = false
     var votedOn: Bool = false
     let result: String?
 }
 
-let onboardingBallot = Ballot(title: "How to use Ranked?", options: ["Option 1", "Option 2", "Option 3", "Option 4"], votes: [""], creator: "The creator", deadline: nil, votedOn: true, result: nil)
-
-let testOpenBallot = Ballot(title: "What's the best language?", options: ["Swift", "JS", "Python", "C", "Rust"], votes: [""], creator: "Valentin", deadline: Date(timeIntervalSinceReferenceDate: 681500000), result: nil)
-
-let testClosedBallot = Ballot(title: "Lunch plans for Barcelona", options: ["Pizza", "Tacos", "Tapas", "Sushi", "Pasta"], votes: [""], creator: "Marc", deadline: Date(timeIntervalSinceReferenceDate: 681250000), isClosed: true, result: "Tapas")
+let onboardingBallot = Ballot(id: 1, title: "How to use Ranked?", options: [Option(id: 1, name: "Option 1", isRanked: false), Option(id: 2, name: "Option 2", isRanked: false), Option(id: 3, name: "Option 3", isRanked: false), Option(id: 4, name: "Option 4", isRanked: false)], votes: [""], creator: "The creator", deadline: nil, votedOn: true, result: nil)
