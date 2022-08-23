@@ -19,9 +19,7 @@ struct VoteScreen: View {
                 VStack(alignment: .leading) {
                     Text("by \(ballot.creator)")
                     Spacer()
-                    ForEach(ballot.options, id: \.self) {option in
-                        Text(option.name)
-                    }
+                    OptionListView()
                 }
                 
             }

@@ -17,7 +17,12 @@
 		A716DE45289C1DA800D65C8A /* rankedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE44289C1DA800D65C8A /* rankedUITestsLaunchTests.swift */; };
 		A716DE52289C1DEB00D65C8A /* HomeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE51289C1DEB00D65C8A /* HomeCardView.swift */; };
 		A716DE56289C21E300D65C8A /* Ballot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE55289C21E300D65C8A /* Ballot.swift */; };
+		A766999128A4058C0001B06D /* OptionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A766999028A4058C0001B06D /* OptionListView.swift */; };
+		A766999328A406130001B06D /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A766999228A406130001B06D /* OptionView.swift */; };
+		A766999728A40F100001B06D /* RankedOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A766999628A40F100001B06D /* RankedOptionView.swift */; };
+		A766999928A4107D0001B06D /* UnrankedOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A766999828A4107D0001B06D /* UnrankedOptionView.swift */; };
 		A770012228A3E9B300DB4F23 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = A770012128A3E9B300DB4F23 /* Option.swift */; };
+		A770012428A3EE1500DB4F23 /* OptionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A770012328A3EE1500DB4F23 /* OptionList.swift */; };
 		A7C0C18C289C2D2E0058501F /* VoteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0C18B289C2D2E0058501F /* VoteScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +57,12 @@
 		A716DE44289C1DA800D65C8A /* rankedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rankedUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A716DE51289C1DEB00D65C8A /* HomeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardView.swift; sourceTree = "<group>"; };
 		A716DE55289C21E300D65C8A /* Ballot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ballot.swift; sourceTree = "<group>"; };
+		A766999028A4058C0001B06D /* OptionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionListView.swift; sourceTree = "<group>"; };
+		A766999228A406130001B06D /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
+		A766999628A40F100001B06D /* RankedOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankedOptionView.swift; sourceTree = "<group>"; };
+		A766999828A4107D0001B06D /* UnrankedOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnrankedOptionView.swift; sourceTree = "<group>"; };
 		A770012128A3E9B300DB4F23 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		A770012328A3EE1500DB4F23 /* OptionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionList.swift; sourceTree = "<group>"; };
 		A7C0C18B289C2D2E0058501F /* VoteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +152,10 @@
 			isa = PBXGroup;
 			children = (
 				A716DE29289C1DA600D65C8A /* ContentView.swift */,
+				A766999028A4058C0001B06D /* OptionListView.swift */,
+				A766999228A406130001B06D /* OptionView.swift */,
+				A766999628A40F100001B06D /* RankedOptionView.swift */,
+				A766999828A4107D0001B06D /* UnrankedOptionView.swift */,
 				A7C0C18B289C2D2E0058501F /* VoteScreen.swift */,
 				A716DE51289C1DEB00D65C8A /* HomeCardView.swift */,
 			);
@@ -153,6 +167,7 @@
 			children = (
 				A716DE55289C21E300D65C8A /* Ballot.swift */,
 				A770012128A3E9B300DB4F23 /* Option.swift */,
+				A770012328A3EE1500DB4F23 /* OptionList.swift */,
 				A700F52A28A3ACD60045FE8F /* OptionDropDelegate.swift */,
 			);
 			path = Models;
@@ -288,13 +303,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A770012428A3EE1500DB4F23 /* OptionList.swift in Sources */,
+				A766999928A4107D0001B06D /* UnrankedOptionView.swift in Sources */,
 				A700F52B28A3ACD60045FE8F /* OptionDropDelegate.swift in Sources */,
+				A766999328A406130001B06D /* OptionView.swift in Sources */,
 				A716DE2A289C1DA600D65C8A /* ContentView.swift in Sources */,
 				A7C0C18C289C2D2E0058501F /* VoteScreen.swift in Sources */,
 				A716DE28289C1DA600D65C8A /* RankedApp.swift in Sources */,
+				A766999728A40F100001B06D /* RankedOptionView.swift in Sources */,
 				A716DE52289C1DEB00D65C8A /* HomeCardView.swift in Sources */,
 				A716DE56289C21E300D65C8A /* Ballot.swift in Sources */,
 				A770012228A3E9B300DB4F23 /* Option.swift in Sources */,
+				A766999128A4058C0001B06D /* OptionListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
