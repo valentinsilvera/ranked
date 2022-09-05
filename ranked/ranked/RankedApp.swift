@@ -6,27 +6,18 @@
 //
 
 import SwiftUI
-import FirebaseCore
-
-class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        FirebaseApp.configure()
-        
-        return true
-    }
-}
+import Firebase
 
 @main
-struct YourApp: App {
-    // register app delegate for Firebase setup
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+struct rankedApp: App {
+    
+    init() {
+        FirebaseApp.configure()
+    }
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                ContentView(ballot: onboardingBallot)
-            }
+            ContentView(poll: onboardingPoll).environmentObject(AuthViewModel())
         }
     }
 }

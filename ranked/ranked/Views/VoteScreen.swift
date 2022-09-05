@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct VoteScreen: View {
-    var ballot: Ballot
+    var poll: Poll
     
     var body: some View {
         NavigationView {
@@ -17,19 +17,19 @@ struct VoteScreen: View {
                     .ignoresSafeArea()
                 
                 VStack(alignment: .leading) {
-                    Text("by \(ballot.creator)")
+                    Text("by \(poll.creator)")
                     Spacer()
                     OptionListView()
                 }
                 
             }
-            .navigationTitle(ballot.title)
+            .navigationTitle(poll.title)
         }
     }
 }
 
 struct VoteScreen_Previews: PreviewProvider {
     static var previews: some View {
-        VoteScreen(ballot: onboardingBallot)
+        VoteScreen(poll: onboardingPoll)
     }
 }

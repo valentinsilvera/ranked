@@ -16,7 +16,7 @@
 		A716DE43289C1DA800D65C8A /* rankedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE42289C1DA800D65C8A /* rankedUITests.swift */; };
 		A716DE45289C1DA800D65C8A /* rankedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE44289C1DA800D65C8A /* rankedUITestsLaunchTests.swift */; };
 		A716DE52289C1DEB00D65C8A /* HomeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE51289C1DEB00D65C8A /* HomeCardView.swift */; };
-		A716DE56289C21E300D65C8A /* Ballot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE55289C21E300D65C8A /* Ballot.swift */; };
+		A716DE56289C21E300D65C8A /* Poll.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE55289C21E300D65C8A /* Poll.swift */; };
 		A766999128A4058C0001B06D /* OptionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A766999028A4058C0001B06D /* OptionListView.swift */; };
 		A766999328A406130001B06D /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A766999228A406130001B06D /* OptionView.swift */; };
 		A766999728A40F100001B06D /* RankedOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A766999628A40F100001B06D /* RankedOptionView.swift */; };
@@ -44,7 +44,9 @@
 		A77A9B7E28C0F86500616243 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A77A9B7D28C0F86500616243 /* FirebaseRemoteConfigSwift */; };
 		A77A9B8028C0F86500616243 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A77A9B7F28C0F86500616243 /* FirebaseStorage */; };
 		A77A9B8228C0F86500616243 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A77A9B8128C0F86500616243 /* FirebaseStorageCombine-Community */; };
+		A77A9B8728C1152800616243 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77A9B8628C1152800616243 /* AuthViewModel.swift */; };
 		A7C0C18C289C2D2E0058501F /* VoteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0C18B289C2D2E0058501F /* VoteScreen.swift */; };
+		A7C2CFF228C6319F009D2F1A /* BallotRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C2CFF128C6319F009D2F1A /* BallotRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +79,7 @@
 		A716DE42289C1DA800D65C8A /* rankedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rankedUITests.swift; sourceTree = "<group>"; };
 		A716DE44289C1DA800D65C8A /* rankedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rankedUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A716DE51289C1DEB00D65C8A /* HomeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardView.swift; sourceTree = "<group>"; };
-		A716DE55289C21E300D65C8A /* Ballot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ballot.swift; sourceTree = "<group>"; };
+		A716DE55289C21E300D65C8A /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		A766999028A4058C0001B06D /* OptionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionListView.swift; sourceTree = "<group>"; };
 		A766999228A406130001B06D /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		A766999628A40F100001B06D /* RankedOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankedOptionView.swift; sourceTree = "<group>"; };
@@ -85,7 +87,9 @@
 		A770012128A3E9B300DB4F23 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		A770012328A3EE1500DB4F23 /* OptionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionList.swift; sourceTree = "<group>"; };
 		A77A9B5828C0F78200616243 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A77A9B8628C1152800616243 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A7C0C18B289C2D2E0058501F /* VoteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreen.swift; sourceTree = "<group>"; };
+		A7C2CFF128C6319F009D2F1A /* BallotRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallotRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,8 @@
 				A716DE27289C1DA600D65C8A /* RankedApp.swift */,
 				A716DE54289C21DA00D65C8A /* Models */,
 				A716DE53289C21C400D65C8A /* Views */,
+				A77A9B8528C1150800616243 /* ViewModels */,
+				A7C2CFF028C63183009D2F1A /* Repositories */,
 				A716DE2B289C1DA800D65C8A /* Assets.xcassets */,
 				A716DE2D289C1DA800D65C8A /* Preview Content */,
 			);
@@ -208,12 +214,28 @@
 		A716DE54289C21DA00D65C8A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A716DE55289C21E300D65C8A /* Ballot.swift */,
+				A716DE55289C21E300D65C8A /* Poll.swift */,
 				A770012128A3E9B300DB4F23 /* Option.swift */,
 				A770012328A3EE1500DB4F23 /* OptionList.swift */,
 				A700F52A28A3ACD60045FE8F /* OptionDropDelegate.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A77A9B8528C1150800616243 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A77A9B8628C1152800616243 /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A7C2CFF028C63183009D2F1A /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				A7C2CFF128C6319F009D2F1A /* BallotRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +396,7 @@
 			files = (
 				A770012428A3EE1500DB4F23 /* OptionList.swift in Sources */,
 				A766999928A4107D0001B06D /* UnrankedOptionView.swift in Sources */,
+				A7C2CFF228C6319F009D2F1A /* BallotRepository.swift in Sources */,
 				A700F52B28A3ACD60045FE8F /* OptionDropDelegate.swift in Sources */,
 				A766999328A406130001B06D /* OptionView.swift in Sources */,
 				A716DE2A289C1DA600D65C8A /* ContentView.swift in Sources */,
@@ -381,8 +404,9 @@
 				A716DE28289C1DA600D65C8A /* RankedApp.swift in Sources */,
 				A766999728A40F100001B06D /* RankedOptionView.swift in Sources */,
 				A716DE52289C1DEB00D65C8A /* HomeCardView.swift in Sources */,
-				A716DE56289C21E300D65C8A /* Ballot.swift in Sources */,
+				A716DE56289C21E300D65C8A /* Poll.swift in Sources */,
 				A770012228A3E9B300DB4F23 /* Option.swift in Sources */,
+				A77A9B8728C1152800616243 /* AuthViewModel.swift in Sources */,
 				A766999128A4058C0001B06D /* OptionListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

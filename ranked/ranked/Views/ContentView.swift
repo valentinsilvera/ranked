@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct ContentView: View {
-    var ballot: Ballot
+    @EnvironmentObject private var authModel: AuthViewModel
+    
+    var poll: Poll
     
     var body: some View {
         NavigationView {
             Group {
-                NavigationLink(destination: VoteScreen(ballot: ballot)) {
-                    HomeCardView(ballot: ballot)
+                NavigationLink(destination: VoteScreen(poll: poll)) {
+                    HomeCardView(poll: poll)
                 }
             }
             .navigationTitle("Home")
@@ -24,6 +27,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(ballot: onboardingBallot)
+        ContentView(poll: onboardingPoll)
     }
 }
