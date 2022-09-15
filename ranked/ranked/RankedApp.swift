@@ -17,7 +17,7 @@ struct rankedApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView(poll: onboardingPoll).environmentObject(AuthViewModel())
+            HomeScreen(poll: onboardingPoll).environmentObject(AuthViewModel())
         }
     }
 }

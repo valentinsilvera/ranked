@@ -10,7 +10,7 @@ import Foundation
 struct Poll: Codable, Identifiable{
     var id: String = UUID().uuidString
     let title: String
-    let options: [Option]
+    let options: [String]
     let votes: [String]
     let creator: String
     var dateCreated = Date()
@@ -20,4 +20,4 @@ struct Poll: Codable, Identifiable{
     let result: String?
 }
 
-let onboardingPoll = Poll(title: "How to use Ranked?", options: [Option(id: 1, name: "Option 1", isRanked: false), Option(id: 2, name: "Option 2", isRanked: false), Option(id: 3, name: "Option 3", isRanked: true), Option(id: 4, name: "Option 4", isRanked: false)], votes: [""], creator: "The creator", deadline: nil, votedOn: true, result: nil)
+let onboardingPoll = Poll(title: "How to use Ranked?", options: [ "Option 1", "Option 2", "Option 3", "Option 4"], votes: [""], creator: "The creator", deadline: nil, votedOn: true, result: nil)

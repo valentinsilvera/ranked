@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct VoteScreen: View {
-    @EnvironmentObject private var optionList: OptionList
     var poll: Poll
     
     var body: some View {
@@ -20,7 +19,6 @@ struct VoteScreen: View {
                 VStack(alignment: .leading) {
                     Text("by \(poll.creator)")
                     Spacer()
-                    OptionListView().environmentObject(OptionList())
                 }
                 
             }

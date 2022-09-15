@@ -8,7 +8,7 @@
 import SwiftUI
 import FirebaseAuth
 
-struct ContentView: View {
+struct HomeScreen: View {
     @EnvironmentObject private var authModel: AuthViewModel
     
     var poll: Poll
@@ -27,6 +27,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(poll: onboardingPoll)
+        HomeScreen(poll: onboardingPoll)
     }
 }
