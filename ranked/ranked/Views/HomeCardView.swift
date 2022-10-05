@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeCardView: View {
-    var poll: Poll
+    let poll: Poll
     
     var body: some View {
         ZStack {
@@ -32,7 +32,7 @@ struct HomeCardView: View {
                 Spacer()
                 
                 VStack{
-                    if poll.votedOn {
+                    if poll.votedOn ?? false {
                         Image(systemName: "checkmark.circle.fill")
                             .resizable()
                             .frame(width: 24, height: 24)

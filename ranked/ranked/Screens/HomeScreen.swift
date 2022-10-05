@@ -22,6 +22,9 @@ struct HomeScreen: View {
             }
             .navigationTitle("Home")
         }
+        .onAppear() {
+            authModel.signInAnonymously()
+        }
     }
 }
 

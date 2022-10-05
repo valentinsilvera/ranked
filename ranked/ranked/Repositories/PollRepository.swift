@@ -9,8 +9,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-class PollRepository: ObservableObject {
-    
+class PollRepository: ObservableObject {    
     let db = Firestore.firestore()
     
     @Published var polls = [Poll]()
@@ -24,5 +23,4 @@ class PollRepository: ObservableObject {
             }
         }
     }
-    
 }

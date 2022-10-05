@@ -10,25 +10,26 @@ import SwiftUI
 
 final class AuthViewModel: ObservableObject {
     
-    var user: User? {
-        didSet { objectWillChange.send()
-        }
-    }
+    @Published var user: User?
     
-    func listenToAuthState() { Auth.auth().addStateDidChangeListener { [weak self] _, user in
-        guard let self = self else { return
+    func listenToAuthState() {
+        Auth.auth().addStateDidChangeListener { [weak self] _, user in
+            guard let self = self else { return }
+            self.user = user
         }
-        self.user = user }
     }
     
     func signInAnonymously() {
-        Auth.auth().signInAnonymously { authResult, error in }
+        Auth.auth().signInAnonymously { authResult, error in
+            print("DEBUG: User signed in with uid \(authResult?.user.uid)")
+        }
     }
     
-    func signOut() { do
-    {
-        try Auth.auth().signOut()
-    } catch let signOutError as NSError {
-        print("Error signing out: %@", signOutError) }
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
     }
 }

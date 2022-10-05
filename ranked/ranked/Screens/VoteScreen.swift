@@ -27,8 +27,8 @@ struct VoteScreen: View {
     }
 }
 
-struct VoteScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        VoteScreen(poll: onboardingPoll)
-    }
-}
+//struct VoteScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VoteScreen(poll: onboardingPoll)
+//    }
+//}

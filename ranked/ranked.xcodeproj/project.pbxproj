@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A700D62428D3635300650491 /* HomeCardListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A700D62328D3635300650491 /* HomeCardListViewModel.swift */; };
+		A700D62728D3762B00650491 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = A700D62628D3762B00650491 /* Resolver */; };
 		A716DE28289C1DA600D65C8A /* RankedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE27289C1DA600D65C8A /* RankedApp.swift */; };
 		A716DE2A289C1DA600D65C8A /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE29289C1DA600D65C8A /* HomeScreen.swift */; };
 		A716DE2C289C1DA800D65C8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A716DE2B289C1DA800D65C8A /* Assets.xcassets */; };
@@ -39,8 +41,11 @@
 		A77A9B8028C0F86500616243 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A77A9B7F28C0F86500616243 /* FirebaseStorage */; };
 		A77A9B8228C0F86500616243 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A77A9B8128C0F86500616243 /* FirebaseStorageCombine-Community */; };
 		A77A9B8728C1152800616243 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77A9B8628C1152800616243 /* AuthViewModel.swift */; };
+		A7A95A8728EC2CF100081577 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A95A8628EC2CF100081577 /* User.swift */; };
+		A7A95A8A28EC2D2C00081577 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A95A8928EC2D2C00081577 /* UserService.swift */; };
 		A7C0C18C289C2D2E0058501F /* VoteScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0C18B289C2D2E0058501F /* VoteScreen.swift */; };
-		A7C2CFF228C6319F009D2F1A /* BallotRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C2CFF128C6319F009D2F1A /* BallotRepository.swift */; };
+		A7C2CFF228C6319F009D2F1A /* PollRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C2CFF128C6319F009D2F1A /* PollRepository.swift */; };
+		A7F5BFF628D3402D00F4C7E5 /* HomeCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F5BFF528D3402D00F4C7E5 /* HomeCardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A700D62328D3635300650491 /* HomeCardListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardListViewModel.swift; sourceTree = "<group>"; };
 		A716DE24289C1DA600D65C8A /* ranked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ranked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A716DE27289C1DA600D65C8A /* RankedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankedApp.swift; sourceTree = "<group>"; };
 		A716DE29289C1DA600D65C8A /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -76,8 +82,11 @@
 		A766999028A4058C0001B06D /* OptionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionListView.swift; sourceTree = "<group>"; };
 		A77A9B5828C0F78200616243 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A77A9B8628C1152800616243 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		A7A95A8628EC2CF100081577 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A7A95A8928EC2D2C00081577 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		A7C0C18B289C2D2E0058501F /* VoteScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreen.swift; sourceTree = "<group>"; };
-		A7C2CFF128C6319F009D2F1A /* BallotRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallotRepository.swift; sourceTree = "<group>"; };
+		A7C2CFF128C6319F009D2F1A /* PollRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollRepository.swift; sourceTree = "<group>"; };
+		A7F5BFF528D3402D00F4C7E5 /* HomeCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +106,7 @@
 				A77A9B6C28C0F86500616243 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				A77A9B8028C0F86500616243 /* FirebaseStorage in Frameworks */,
 				A77A9B6028C0F86500616243 /* FirebaseAuth in Frameworks */,
+				A700D62728D3762B00650491 /* Resolver in Frameworks */,
 				A77A9B6E28C0F86500616243 /* FirebaseFirestoreSwift in Frameworks */,
 				A77A9B5E28C0F86500616243 /* FirebaseAppDistribution-Beta in Frameworks */,
 				A77A9B7828C0F86500616243 /* FirebaseInstallations in Frameworks */,
@@ -150,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				A716DE27289C1DA600D65C8A /* RankedApp.swift */,
+				A7A95A8828EC2D1E00081577 /* Services */,
 				A716DE54289C21DA00D65C8A /* Models */,
 				A77A9B8528C1150800616243 /* ViewModels */,
 				A716DE53289C21C400D65C8A /* Views */,
@@ -199,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				A716DE55289C21E300D65C8A /* Poll.swift */,
+				A7A95A8628EC2CF100081577 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -207,14 +219,24 @@
 			isa = PBXGroup;
 			children = (
 				A77A9B8628C1152800616243 /* AuthViewModel.swift */,
+				A7F5BFF528D3402D00F4C7E5 /* HomeCardViewModel.swift */,
+				A700D62328D3635300650491 /* HomeCardListViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A7A95A8828EC2D1E00081577 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A7A95A8928EC2D2C00081577 /* UserService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		A7C2CFF028C63183009D2F1A /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				A7C2CFF128C6319F009D2F1A /* BallotRepository.swift */,
+				A7C2CFF128C6319F009D2F1A /* PollRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -265,6 +287,7 @@
 				A77A9B7D28C0F86500616243 /* FirebaseRemoteConfigSwift */,
 				A77A9B7F28C0F86500616243 /* FirebaseStorage */,
 				A77A9B8128C0F86500616243 /* FirebaseStorageCombine-Community */,
+				A700D62628D3762B00650491 /* Resolver */,
 			);
 			productName = ranked;
 			productReference = A716DE24289C1DA600D65C8A /* ranked.app */;
@@ -340,6 +363,7 @@
 			mainGroup = A716DE1B289C1DA600D65C8A;
 			packageReferences = (
 				A77A9B5A28C0F86500616243 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				A700D62528D3762B00650491 /* XCRemoteSwiftPackageReference "Resolver" */,
 			);
 			productRefGroup = A716DE25289C1DA600D65C8A /* Products */;
 			projectDirPath = "";
@@ -384,14 +408,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7C2CFF228C6319F009D2F1A /* BallotRepository.swift in Sources */,
+				A7C2CFF228C6319F009D2F1A /* PollRepository.swift in Sources */,
 				A716DE2A289C1DA600D65C8A /* HomeScreen.swift in Sources */,
+				A7F5BFF628D3402D00F4C7E5 /* HomeCardViewModel.swift in Sources */,
+				A700D62428D3635300650491 /* HomeCardListViewModel.swift in Sources */,
 				A7C0C18C289C2D2E0058501F /* VoteScreen.swift in Sources */,
 				A716DE28289C1DA600D65C8A /* RankedApp.swift in Sources */,
 				A716DE52289C1DEB00D65C8A /* HomeCardView.swift in Sources */,
 				A716DE56289C21E300D65C8A /* Poll.swift in Sources */,
+				A7A95A8A28EC2D2C00081577 /* UserService.swift in Sources */,
 				A77A9B8728C1152800616243 /* AuthViewModel.swift in Sources */,
 				A766999128A4058C0001B06D /* OptionListView.swift in Sources */,
+				A7A95A8728EC2CF100081577 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +746,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A700D62528D3762B00650491 /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		A77A9B5A28C0F86500616243 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -729,6 +765,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A700D62628D3762B00650491 /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A700D62528D3762B00650491 /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
 		A77A9B5B28C0F86500616243 /* FirebaseAppCheck */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A77A9B5A28C0F86500616243 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -10,6 +10,7 @@ import Firebase
 
 @main
 struct rankedApp: App {
+    @StateObject var viewModel = AuthViewModel()
     
     init() {
         FirebaseApp.configure()
@@ -17,7 +18,7 @@ struct rankedApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeScreen(poll: onboardingPoll).environmentObject(AuthViewModel())
+            HomeScreen(poll: onboardingPoll).environmentObject(viewModel)
         }
     }
 }
