@@ -8,28 +8,27 @@
 import SwiftUI
 import FirebaseAuth
 
-struct HomeScreen: View {
-    @EnvironmentObject private var authModel: AuthViewModel
+struct HomeScreenView: View {
+    @EnvironmentObject private var authVM: AuthViewModel
     
-    var poll: Poll
     
     var body: some View {
         NavigationView {
             Group {
-                NavigationLink(destination: VoteScreen(poll: poll)) {
-                    HomeCardView(poll: poll)
-                }
+//                NavigationLink(destination: VoteScreen(poll: poll)) {
+//                    HomePollView(poll: poll)
+//                }
             }
             .navigationTitle("Home")
         }
         .onAppear() {
-            authModel.signInAnonymously()
+            authVM.signInAnonymously()
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreen(poll: onboardingPoll)
+        HomeScreenView()
     }
 }

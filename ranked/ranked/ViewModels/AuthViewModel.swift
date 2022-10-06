@@ -21,7 +21,7 @@ final class AuthViewModel: ObservableObject {
     
     func signInAnonymously() {
         Auth.auth().signInAnonymously { authResult, error in
-            print("DEBUG: User signed in with uid \(authResult?.user.uid)")
+            print("DEBUG: User signed in with uid \(authResult?.user.uid ?? "No user found")")
         }
     }
     

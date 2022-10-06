@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomeCardView: View {
+struct HomePollView: View {
     let poll: Poll
     
     var body: some View {
@@ -25,7 +25,7 @@ struct HomeCardView: View {
                     Text(poll.title)
                         .font(.title2)
                     
-                    Text("by \(poll.creator)")
+                    Text("by creator")
                         .font(.callout)
                 }
                 
@@ -52,8 +52,8 @@ struct HomeCardView: View {
     }
 }
 
-struct HomeCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeCardView(poll: onboardingPoll)
-    }
-}
+//struct HomeCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeCardView()
+//    }
+//}

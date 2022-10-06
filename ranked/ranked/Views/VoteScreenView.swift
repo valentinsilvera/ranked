@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct VoteScreen: View {
+struct VoteScreenView: View {
     var poll: Poll
     
     var body: some View {
@@ -17,7 +17,7 @@ struct VoteScreen: View {
                     .ignoresSafeArea()
                 
                 VStack(alignment: .leading) {
-                    Text("by \(poll.creator)")
+                    Text("by creator")
                     Spacer()
                 }
                 
@@ -27,8 +27,8 @@ struct VoteScreen: View {
     }
 }
 
-//struct VoteScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        VoteScreen(poll: onboardingPoll)
-//    }
-//}
+struct VoteScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        VoteScreenView(poll: onboardingPoll)
+    }
+}
