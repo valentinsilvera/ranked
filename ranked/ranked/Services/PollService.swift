@@ -8,14 +8,13 @@
 import Firebase
 
 struct PollService {
-    func uploadPoll(title: String, options: [String], deadline: Any?, completion: @escaping(Bool) -> Void) {
+    func uploadPoll(title: String, options: [String], completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         let data = ["uid": uid,
                     "title": title,
                     "options": options,
                     "timestamp": Timestamp(date: Date()),
-                    "deadline": deadline,
                     "isClosed": false,
                     "results": [""]] as [String : Any]
         
@@ -35,9 +34,13 @@ struct PollService {
         Firestore.firestore().collection("polls")
             .order(by: "timestamp", descending: true)
             .getDocuments { snapshot, _ in
-                guard let documents = snapshot?.documents else { return }
+                guard let documents = snapshot?.documents else {
+                    print("DEBUG: No documents")
+                    return
+                }
                 
                 let polls = documents.compactMap({ try? $0.data(as: Poll.self)})
+                print("DEBUG: \(polls)")
                 completion(polls)
             }
     }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HomePollView: View {
+struct PollPreviewView: View {
     let poll: Poll
     
     var body: some View {
@@ -52,8 +52,8 @@ struct HomePollView: View {
     }
 }
 
-//struct HomeCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeCardView()
-//    }
-//}
+struct HomeCardView_Previews: PreviewProvider {
+    static var previews: some View {
+        PollPreviewView(poll: onboardingPoll)
+    }
+}
