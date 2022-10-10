@@ -30,11 +30,25 @@ struct NewPollView: View {
             .padding()
             
             Group {
-                TextEditor(text: $title)
+                ZStack(alignment: .leading) {
+                    if title.isEmpty {
+                        VStack {
+                            Text("Write a title for your poll...")
+                                .padding()
+                            Spacer()
+                        }
+                    }
+                    
+                    TextEditor(text: $title)
+                        .padding()
+                        .opacity(title.isEmpty ? 0.25 : 1)
+                }
                 TextEditor(text: $options[0])
                 TextEditor(text: $options[1])
             }
-            .border(.white)
+            .border(.primary, width: 2)
+            .cornerRadius(16)
+            .padding(.top)
             
             
             Button {
