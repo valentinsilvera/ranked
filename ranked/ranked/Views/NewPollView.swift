@@ -14,58 +14,65 @@ struct NewPollView: View {
     @ObservedObject var viewModel = NewPollViewModel()
     
     var body: some View {
-        VStack{
-            HStack {
-                Spacer()
-                
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                        .foregroundColor(.primary)
-                }
-            }
-            .padding()
-            
-            Group {
-                ZStack(alignment: .leading) {
-                    if title.isEmpty {
-                        VStack {
-                            Text("Write a title for your poll...")
-                                .padding()
-                            Spacer()
-                        }
-                    }
+        ScrollView {
+            VStack{
+                HStack {
+                    Spacer()
                     
-                    TextEditor(text: $title)
-                        .padding()
-                        .opacity(title.isEmpty ? 0.25 : 1)
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                            .foregroundColor(.primary)
+                    }
                 }
-                TextEditor(text: $options[0])
-                TextEditor(text: $options[1])
+                .padding()
+                
+                Group {
+                    CustomTextEditor(text: $title, placeholder: "Title for the poll...")
+                    CustomTextEditor(text: $options[0], placeholder: "First option...")
+                    CustomTextEditor(text: $options[1], placeholder: "Second option...")
+                }
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(lineWidth: 2)
+                )
+                .padding([.top, .leading, .trailing])
+                
+                if !title.isEmpty && !options.isEmpty {
+                    Button {
+                        viewModel.uploadPoll(withTitle: title, withOptions: options)
+                    } label: {
+                        Text("Create Poll")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(width: 340, height: 50)
+                            .background(Color(.systemBlue))
+                            .clipShape(Capsule())
+                            .padding()
+                    }
+                } else {
+                    Button {
+                        viewModel.uploadPoll(withTitle: title, withOptions: options)
+                    } label: {
+                        Text("Create Poll")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(width: 340, height: 50)
+                            .background(.gray)
+                            .clipShape(Capsule())
+                            .padding()
+                    }
+                    .disabled(true)
+                }
+                
             }
-            .border(.primary, width: 2)
-            .cornerRadius(16)
-            .padding(.top)
-            
-            
-            Button {
-                viewModel.uploadPoll(withTitle: title, withOptions: options)
-            } label: {
-                Text("Create Poll")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(width: 340, height: 50)
-                    .background(Color(.systemBlue))
-                    .clipShape(Capsule())
-                    .padding()
-            }
-        }
-        .onReceive(viewModel.$didUploadPoll) { success in
-            if success {
-                dismiss()
+            .onReceive(viewModel.$didUploadPoll) { success in
+                if success {
+                    dismiss()
+                }
             }
         }
     }

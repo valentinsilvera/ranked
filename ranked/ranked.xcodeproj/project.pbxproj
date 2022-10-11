@@ -44,6 +44,7 @@
 		A7AE38CF28EF391700112329 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38CE28EF391700112329 /* HomeScreenViewModel.swift */; };
 		A7AE38D128F0186900112329 /* NewPollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38D028F0186900112329 /* NewPollView.swift */; };
 		A7AE38D428F0188500112329 /* NewPollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38D328F0188500112329 /* NewPollViewModel.swift */; };
+		A7AE38D728F59CE400112329 /* CustomTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38D628F59CE400112329 /* CustomTextEditor.swift */; };
 		A7C0C18C289C2D2E0058501F /* VoteScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		A7AE38CE28EF391700112329 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		A7AE38D028F0186900112329 /* NewPollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPollView.swift; sourceTree = "<group>"; };
 		A7AE38D328F0188500112329 /* NewPollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPollViewModel.swift; sourceTree = "<group>"; };
+		A7AE38D628F59CE400112329 /* CustomTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextEditor.swift; sourceTree = "<group>"; };
 		A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +159,7 @@
 		A716DE26289C1DA600D65C8A /* ranked */ = {
 			isa = PBXGroup;
 			children = (
+				A7AE38D528F59CD900112329 /* Utilities */,
 				A7A95A8828EC2D1E00081577 /* Services */,
 				A716DE54289C21DA00D65C8A /* Models */,
 				A77A9B8528C1150800616243 /* ViewModels */,
@@ -229,6 +232,14 @@
 				A7AE38CC28ED631000112329 /* PollService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		A7AE38D528F59CD900112329 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A7AE38D628F59CE400112329 /* CustomTextEditor.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7AE38D728F59CE400112329 /* CustomTextEditor.swift in Sources */,
 				A716DE2A289C1DA600D65C8A /* HomeScreenView.swift in Sources */,
 				A7AE38CF28EF391700112329 /* HomeScreenViewModel.swift in Sources */,
 				A7C0C18C289C2D2E0058501F /* VoteScreenView.swift in Sources */,
