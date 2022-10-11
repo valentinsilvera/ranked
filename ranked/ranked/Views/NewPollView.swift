@@ -14,11 +14,33 @@ struct NewPollView: View {
     @ObservedObject var viewModel = NewPollViewModel()
     
     var body: some View {
-        ScrollView {
-            VStack{
-                HStack {
-                    Spacer()
-                    
+        NavigationView {
+            Form{
+                Section("Poll title:") {
+                    TextField("Write the title of your poll...", text: $title)
+                }
+                
+                Section("Options:") {
+                    TextField("Write the first option...", text: $options[0])
+                    TextField("Write the second option...", text: $options[1])
+                }
+                
+                if !title.isEmpty && options[0] != "" && options[1] != "" {
+                    Button {
+                        viewModel.uploadPoll(withTitle: title, withOptions: options)
+                    } label: {
+                        Text("Create Poll")
+                            .font(.headline)
+                    }
+                } else {
+                    Text("Create Poll")
+                        .font(.headline)
+                        .foregroundColor(.gray)
+                }
+            }
+            .navigationTitle("Create Poll")
+            .toolbar {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button {
                         dismiss()
                     } label: {
@@ -28,46 +50,6 @@ struct NewPollView: View {
                             .foregroundColor(.primary)
                     }
                 }
-                .padding()
-                
-                Group {
-                    CustomTextEditor(text: $title, placeholder: "Title for the poll...")
-                    CustomTextEditor(text: $options[0], placeholder: "First option...")
-                    CustomTextEditor(text: $options[1], placeholder: "Second option...")
-                }
-                .overlay(
-                    RoundedRectangle(cornerRadius: 16)
-                        .stroke(lineWidth: 2)
-                )
-                .padding([.top, .leading, .trailing])
-                
-                if !title.isEmpty && !options.isEmpty {
-                    Button {
-                        viewModel.uploadPoll(withTitle: title, withOptions: options)
-                    } label: {
-                        Text("Create Poll")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(width: 340, height: 50)
-                            .background(Color(.systemBlue))
-                            .clipShape(Capsule())
-                            .padding()
-                    }
-                } else {
-                    Button {
-                        viewModel.uploadPoll(withTitle: title, withOptions: options)
-                    } label: {
-                        Text("Create Poll")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .frame(width: 340, height: 50)
-                            .background(.gray)
-                            .clipShape(Capsule())
-                            .padding()
-                    }
-                    .disabled(true)
-                }
-                
             }
             .onReceive(viewModel.$didUploadPoll) { success in
                 if success {
@@ -83,3 +65,11 @@ struct NewPollView_Previews: PreviewProvider {
         NewPollView()
     }
 }
+
+#if canImport(UIKit)
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+#endif

@@ -48,7 +48,8 @@ struct PollPreviewView: View {
             .padding(12)
             .foregroundColor(.white)
         }
-        .padding(12)
+        .padding(.top, 8)
+        .padding([.leading, .trailing])
     }
 }
 
