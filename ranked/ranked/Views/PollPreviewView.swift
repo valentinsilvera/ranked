@@ -13,7 +13,9 @@ struct PollPreviewView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 25, style: .continuous)
-                .fill(LinearGradient(colors: [.pink, .purple], startPoint: .topLeading, endPoint: .bottomTrailing))
+                .fill(LinearGradient(colors: [.pink, .purple],
+                                     startPoint: .topLeading,
+                                     endPoint: .bottomTrailing))
                 .frame(maxWidth: UIScreen.main.bounds.size.width, minHeight: 100, maxHeight: 120)
             
             HStack {
