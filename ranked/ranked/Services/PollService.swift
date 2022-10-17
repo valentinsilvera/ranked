@@ -6,6 +6,7 @@
 //
 
 import Firebase
+import UIKit
 
 struct PollService {
     func uploadPoll(title: String, options: [String], completion: @escaping(Bool) -> Void) {

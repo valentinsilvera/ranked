@@ -9,9 +9,14 @@ import SwiftUI
 
 struct VoteScreenView: View {
     var poll: Poll
-//    @ObservedObject var viewModel = VoteScreenViewModel(poll: Poll, noPreferenceList: <#T##[String]#>)
+    @ObservedObject var viewModel: VoteScreenViewModel
     @State private var noPreferenceList = [String]()
     @State private var preferenceList = [String]()
+    
+    init(poll: Poll) {
+        self.poll = poll
+        self.viewModel = VoteScreenViewModel(poll: poll, noPreferenceList: poll.options)
+    }
     
     var body: some View {
         NavigationView {
@@ -20,20 +25,20 @@ struct VoteScreenView: View {
                     .ignoresSafeArea()
                 
                 VStack(alignment: .leading) {
-                    Text("by creator")
+                    Text("by \(poll.uid)")
                     Spacer()
                 }
                 
-                List {
-                    Text("Preference List")
-                        .font(.subheadline)
-                    ForEach(preferenceList, id: \.self) { user in
-                        Text(user)
-                            .onDrag { NSItemProvider(object: user as NSString) }
-                    }
+//                List {
+//                    Text("Preference List")
+//                        .font(.subheadline)
+//                    ForEach(preferenceList, id: \.self) { user in
+//                        Text(user)
+//                            .onDrag { NSItemProvider(object: user as NSString) }
+//                    }
 //                    .onMove(perform: viewModel.movePreferenceList())
 //                    .onInsert(of: ["public.text"], perform: viewModel.dropPreferenceList())
-                }
+//                }
                 
             }
             .navigationTitle(poll.title)
