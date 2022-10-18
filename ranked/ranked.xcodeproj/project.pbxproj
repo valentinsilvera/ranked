@@ -39,11 +39,13 @@
 		A77A9B8028C0F86500616243 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A77A9B7F28C0F86500616243 /* FirebaseStorage */; };
 		A77A9B8228C0F86500616243 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A77A9B8128C0F86500616243 /* FirebaseStorageCombine-Community */; };
 		A77A9B8728C1152800616243 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77A9B8628C1152800616243 /* AuthViewModel.swift */; };
-		A7A95A8728EC2CF100081577 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A95A8628EC2CF100081577 /* User.swift */; };
+		A7A95A8728EC2CF100081577 /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A95A8628EC2CF100081577 /* FirebaseUser.swift */; };
 		A7AE38CD28ED631000112329 /* PollService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38CC28ED631000112329 /* PollService.swift */; };
 		A7AE38CF28EF391700112329 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38CE28EF391700112329 /* HomeScreenViewModel.swift */; };
 		A7AE38D128F0186900112329 /* NewPollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38D028F0186900112329 /* NewPollView.swift */; };
 		A7AE38D428F0188500112329 /* NewPollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38D328F0188500112329 /* NewPollViewModel.swift */; };
+		A7AE38DB28F80A0B00112329 /* VoteScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38DA28F80A0B00112329 /* VoteScreenViewModel.swift */; };
+		A7AE38E128FE891D00112329 /* DroppableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38E028FE891D00112329 /* DroppableList.swift */; };
 		A7C0C18C289C2D2E0058501F /* VoteScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,11 +81,13 @@
 		A716DE55289C21E300D65C8A /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		A77A9B5828C0F78200616243 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A77A9B8628C1152800616243 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		A7A95A8628EC2CF100081577 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A7A95A8628EC2CF100081577 /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		A7AE38CC28ED631000112329 /* PollService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollService.swift; sourceTree = "<group>"; };
 		A7AE38CE28EF391700112329 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		A7AE38D028F0186900112329 /* NewPollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPollView.swift; sourceTree = "<group>"; };
 		A7AE38D328F0188500112329 /* NewPollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPollViewModel.swift; sourceTree = "<group>"; };
+		A7AE38DA28F80A0B00112329 /* VoteScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreenViewModel.swift; sourceTree = "<group>"; };
+		A7AE38E028FE891D00112329 /* DroppableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppableList.swift; sourceTree = "<group>"; };
 		A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -209,7 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				A716DE55289C21E300D65C8A /* Poll.swift */,
-				A7A95A8628EC2CF100081577 /* User.swift */,
+				A7A95A8628EC2CF100081577 /* FirebaseUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,6 +224,7 @@
 				A77A9B8628C1152800616243 /* AuthViewModel.swift */,
 				A7AE38D328F0188500112329 /* NewPollViewModel.swift */,
 				A7AE38CE28EF391700112329 /* HomeScreenViewModel.swift */,
+				A7AE38DA28F80A0B00112329 /* VoteScreenViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 		A7AE38D528F59CD900112329 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A7AE38E028FE891D00112329 /* DroppableList.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -398,7 +404,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A716DE2A289C1DA600D65C8A /* HomeScreenView.swift in Sources */,
+				A7AE38E128FE891D00112329 /* DroppableList.swift in Sources */,
 				A7AE38CF28EF391700112329 /* HomeScreenViewModel.swift in Sources */,
+				A7AE38DB28F80A0B00112329 /* VoteScreenViewModel.swift in Sources */,
 				A7C0C18C289C2D2E0058501F /* VoteScreenView.swift in Sources */,
 				A716DE28289C1DA600D65C8A /* RankedApp.swift in Sources */,
 				A7AE38D128F0186900112329 /* NewPollView.swift in Sources */,
@@ -407,7 +415,7 @@
 				A7AE38CD28ED631000112329 /* PollService.swift in Sources */,
 				A77A9B8728C1152800616243 /* AuthViewModel.swift in Sources */,
 				A7AE38D428F0188500112329 /* NewPollViewModel.swift in Sources */,
-				A7A95A8728EC2CF100081577 /* User.swift in Sources */,
+				A7A95A8728EC2CF100081577 /* FirebaseUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,8 +580,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -601,8 +609,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

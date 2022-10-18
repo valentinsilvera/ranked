@@ -14,41 +14,43 @@ struct HomeScreenView: View {
     @State var showNewPollView = false
     
     var body: some View {
-        ZStack(alignment: .bottomTrailing) {
+        
             NavigationView {
-                ScrollView {
-                    Group {
-                        NavigationLink(destination: VoteScreenView(poll: onboardingPoll)) {
-                            PollPreviewView(poll: onboardingPoll)
-                        }
-                        ForEach(viewModel.polls) { poll in
-                            NavigationLink(destination: VoteScreenView(poll: poll)) {
-                                PollPreviewView(poll: poll)
+                ZStack(alignment: .bottomTrailing) {
+                    ScrollView {
+                        Group {
+                            NavigationLink(destination: VoteScreenView(poll: onboardingPoll)) {
+                                PollPreviewView(poll: onboardingPoll)
+                            }
+                            ForEach(viewModel.polls) { poll in
+                                NavigationLink(destination: VoteScreenView(poll: poll)) {
+                                    PollPreviewView(poll: poll)
+                                }
                             }
                         }
+                        .navigationTitle("Home")
+                        
+                        Spacer()
                     }
-                    .navigationTitle("Home")
+                    .refreshable {
+                        viewModel.fetchPolls()
+                    }
                     
-                    Spacer()
+                    
+                    Button {
+                        showNewPollView.toggle()
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                            .resizable()
+                            .renderingMode(.template)
+                            .frame(width: 55, height: 55)
+                            .foregroundColor(.primary)
+                            .padding()
+                    }
+                    .fullScreenCover(isPresented: $showNewPollView) {
+                        NewPollView()
+                    }
                 }
-                .refreshable {
-                    viewModel.fetchPolls()
-                }
-            }
-            
-            Button {
-                showNewPollView.toggle()
-            } label: {
-                Image(systemName: "plus.circle.fill")
-                    .resizable()
-                    .renderingMode(.template)
-                    .frame(width: 55, height: 55)
-                    .foregroundColor(.primary)
-                    .padding()
-            }
-            .fullScreenCover(isPresented: $showNewPollView) {
-                NewPollView()
-            }
         }
         .onAppear() {
             authVM.signInAnonymously()

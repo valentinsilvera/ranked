@@ -13,6 +13,7 @@ struct Poll: Identifiable, Codable {
     @DocumentID var id: String?
     let uid: String
     let title: String
+//    let creator: String
     let options: [String]
     let votes: [String]?
     let timestamp: Timestamp
