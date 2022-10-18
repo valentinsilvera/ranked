@@ -45,7 +45,7 @@
 		A7AE38D128F0186900112329 /* NewPollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38D028F0186900112329 /* NewPollView.swift */; };
 		A7AE38D428F0188500112329 /* NewPollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38D328F0188500112329 /* NewPollViewModel.swift */; };
 		A7AE38DB28F80A0B00112329 /* VoteScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38DA28F80A0B00112329 /* VoteScreenViewModel.swift */; };
-		A7AE38DF28FDCA4200112329 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38DE28FDCA4200112329 /* Username.swift */; };
+		A7AE38E128FE891D00112329 /* DroppableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38E028FE891D00112329 /* DroppableList.swift */; };
 		A7C0C18C289C2D2E0058501F /* VoteScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,7 +87,7 @@
 		A7AE38D028F0186900112329 /* NewPollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPollView.swift; sourceTree = "<group>"; };
 		A7AE38D328F0188500112329 /* NewPollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPollViewModel.swift; sourceTree = "<group>"; };
 		A7AE38DA28F80A0B00112329 /* VoteScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreenViewModel.swift; sourceTree = "<group>"; };
-		A7AE38DE28FDCA4200112329 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
+		A7AE38E028FE891D00112329 /* DroppableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppableList.swift; sourceTree = "<group>"; };
 		A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,7 +240,7 @@
 		A7AE38D528F59CD900112329 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				A7AE38DE28FDCA4200112329 /* Username.swift */,
+				A7AE38E028FE891D00112329 /* DroppableList.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -404,12 +404,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A716DE2A289C1DA600D65C8A /* HomeScreenView.swift in Sources */,
+				A7AE38E128FE891D00112329 /* DroppableList.swift in Sources */,
 				A7AE38CF28EF391700112329 /* HomeScreenViewModel.swift in Sources */,
 				A7AE38DB28F80A0B00112329 /* VoteScreenViewModel.swift in Sources */,
 				A7C0C18C289C2D2E0058501F /* VoteScreenView.swift in Sources */,
 				A716DE28289C1DA600D65C8A /* RankedApp.swift in Sources */,
 				A7AE38D128F0186900112329 /* NewPollView.swift in Sources */,
-				A7AE38DF28FDCA4200112329 /* Username.swift in Sources */,
 				A716DE52289C1DEB00D65C8A /* PollPreviewView.swift in Sources */,
 				A716DE56289C21E300D65C8A /* Poll.swift in Sources */,
 				A7AE38CD28ED631000112329 /* PollService.swift in Sources */,

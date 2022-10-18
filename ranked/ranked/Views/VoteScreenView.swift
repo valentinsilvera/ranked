@@ -9,14 +9,10 @@ import SwiftUI
 
 struct VoteScreenView: View {
     var poll: Poll
-    @ObservedObject var viewModel: VoteScreenViewModel
+    @ObservedObject var viewModel = VoteScreenViewModel()
+    @Environment(\.dismiss) private var dismiss
     @State private var noPreferenceList = [String]()
     @State private var preferenceList = [String]()
-    
-    init(poll: Poll) {
-        self.poll = poll
-        self.viewModel = VoteScreenViewModel(poll: poll, noPreferenceList: poll.options)
-    }
     
     var body: some View {
         NavigationView {
@@ -26,20 +22,39 @@ struct VoteScreenView: View {
                 
                 VStack(alignment: .leading) {
                     Text("by \(poll.uid)")
+                        .padding(.horizontal)
+                    
                     Spacer()
+                    
+                    DroppableList("Preference", options: $preferenceList)  { dropped, index in
+                        preferenceList.insert(dropped, at: index)
+                        noPreferenceList.removeAll { $0 == dropped }
+                    }
+                    
+                    DroppableList("No Preference", options: $noPreferenceList) { dropped, index in
+                        noPreferenceList.insert(dropped, at: index)
+                        preferenceList.removeAll { $0 == dropped }
+                    }
+                    
+                    Spacer()
+                    
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Submit Vote")
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                            .frame(width: 360, height: 50)
+                            .background(Color.secondary)
+                            .clipShape(Capsule())
+                            .padding()
+                    }
+                    .onReceive(viewModel.$didUploadVote) { success in
+                        if success {
+                            dismiss()
+                        }
+                    }
                 }
-                
-//                List {
-//                    Text("Preference List")
-//                        .font(.subheadline)
-//                    ForEach(preferenceList, id: \.self) { user in
-//                        Text(user)
-//                            .onDrag { NSItemProvider(object: user as NSString) }
-//                    }
-//                    .onMove(perform: viewModel.movePreferenceList())
-//                    .onInsert(of: ["public.text"], perform: viewModel.dropPreferenceList())
-//                }
-                
             }
             .navigationTitle(poll.title)
         }

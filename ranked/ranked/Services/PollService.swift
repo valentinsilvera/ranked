@@ -45,4 +45,9 @@ struct PollService {
                 completion(polls)
             }
     }
+    
+    func uploadVote(options: [String], completion: @escaping(Bool) -> Void) {
+        print("DEBUG: Vote uploaded with options: \(options)")
+        completion(true)
+    }
 }
