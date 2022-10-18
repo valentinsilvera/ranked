@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct VoteScreenView: View {
     var poll: Poll
@@ -13,41 +14,57 @@ struct VoteScreenView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var noPreferenceList = [String]()
     @State private var preferenceList = [String]()
+    @State private var showConfirmation = false
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                LinearGradient(colors: [.pink, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .ignoresSafeArea()
+        ZStack {
+            LinearGradient(colors: [.pink, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea()
+            
+            VStack(alignment: .leading) {
+                Text(poll.title)
+                    .font(.largeTitle)
+                    .padding(.horizontal)
+                    .bold()
                 
-                VStack(alignment: .leading) {
-                    Text("by \(poll.uid)")
-                        .padding(.horizontal)
-                    
-                    Spacer()
-                    
+                Text("by \(poll.uid)")
+                    .padding(.horizontal)
+                    .padding(.top, 2)
+                
+                Spacer()
+                
+                HStack(spacing: 0) {
                     DroppableList("Preference", options: $preferenceList)  { dropped, index in
                         preferenceList.insert(dropped, at: index)
                         noPreferenceList.removeAll { $0 == dropped }
                     }
+                    .padding(.trailing, -8)
                     
                     DroppableList("No Preference", options: $noPreferenceList) { dropped, index in
                         noPreferenceList.insert(dropped, at: index)
                         preferenceList.removeAll { $0 == dropped }
                     }
-                    
-                    Spacer()
-                    
+                    .padding(.leading, -8)
+                }
+                
+                Spacer()
+                
+                Button {
+                    showConfirmation = true
+                } label: {
+                    Text("Submit Vote")
+                        .font(.headline)
+                        .foregroundColor(.black)
+                        .frame(width: 360, height: 50)
+                        .background(Color.white)
+                        .clipShape(Capsule())
+                        .padding()
+                }
+                .confirmationDialog("Submit this vote? You won't be able to change it afterwards!", isPresented: $showConfirmation, titleVisibility: .visible) {
                     Button {
                         dismiss()
                     } label: {
-                        Text("Submit Vote")
-                            .font(.headline)
-                            .foregroundColor(.primary)
-                            .frame(width: 360, height: 50)
-                            .background(Color.secondary)
-                            .clipShape(Capsule())
-                            .padding()
+                        Text("Yes")
                     }
                     .onReceive(viewModel.$didUploadVote) { success in
                         if success {
@@ -56,12 +73,12 @@ struct VoteScreenView: View {
                     }
                 }
             }
-            .navigationTitle(poll.title)
         }
         // this sets instance properties that need other instance properties initialized before
         .onAppear {
             noPreferenceList = poll.options
         }
+        .padding(.top, -40)
     }
 }
 

@@ -46,7 +46,7 @@ struct DroppableList: View {
                 .onInsert(of: [.plainText], perform: dropOption)
             }
         }
-//        .scrollContentBackground(.hidden)
+        .scrollContentBackground(.hidden)
     }
     
     func moveOption(from source: IndexSet, to destination: Int) {
