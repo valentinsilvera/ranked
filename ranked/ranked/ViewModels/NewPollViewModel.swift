@@ -11,8 +11,8 @@ class NewPollViewModel: ObservableObject {
     @Published var didUploadPoll = false
     let service = PollService()
     
-    func uploadPoll(withTitle title: String, withOptions options: [String]) {
-        service.uploadPoll(title: title, options: options) { success in
+    func uploadPoll(withTitle title: String, by creator: String, withOptions options: [String]) {
+        service.uploadPoll(title: title, creator: creator, options: options) { success in
             if success {
                 self.didUploadPoll = true
             } else {

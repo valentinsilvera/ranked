@@ -27,7 +27,7 @@ struct VoteScreenView: View {
                     .padding(.horizontal)
                     .bold()
                 
-                Text("by \(poll.uid)")
+                Text("by \(poll.creator)")
                     .padding(.horizontal)
                     .padding(.top, 2)
                 
