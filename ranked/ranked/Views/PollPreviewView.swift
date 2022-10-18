@@ -27,7 +27,7 @@ struct PollPreviewView: View {
                     Text(poll.title)
                         .font(.title2)
                     
-                    Text("by creator")
+                    Text("by \(poll.creator)")
                         .font(.callout)
                 }
                 

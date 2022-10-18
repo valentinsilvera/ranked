@@ -11,6 +11,7 @@ struct NewPollView: View {
     @State var title = ""
     @State var options = ["", ""]
     @State var deadline = Date()
+    @AppStorage("CREATOR") private var creator = ""
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel = NewPollViewModel()
     
@@ -21,6 +22,12 @@ struct NewPollView: View {
                     TextField("Write the title of your poll...",
                               text: $title)
                 }
+                
+                Section("Signature:") {
+                    TextField("Write your name as a creator of the poll...",
+                              text: $creator)
+                }
+                
                 
                 Section("Options:") {
                     ForEach(0..<options.count, id: \.self) { index in
@@ -54,13 +61,12 @@ struct NewPollView: View {
                             }
                         }
                     }
-                }
+                }                
                 
-                
-                
-                if !title.isEmpty && options[0] != "" && options[1] != "" {
+                if !title.isEmpty && !creator.isEmpty && options[0] != "" && options[1] != "" {
                     Button {
                         viewModel.uploadPoll(withTitle: title,
+                                             by: creator,
                                              withOptions: options)
                     } label: {
                         Text("Create Poll")

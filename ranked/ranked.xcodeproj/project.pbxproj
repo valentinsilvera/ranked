@@ -39,7 +39,6 @@
 		A77A9B8028C0F86500616243 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = A77A9B7F28C0F86500616243 /* FirebaseStorage */; };
 		A77A9B8228C0F86500616243 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = A77A9B8128C0F86500616243 /* FirebaseStorageCombine-Community */; };
 		A77A9B8728C1152800616243 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77A9B8628C1152800616243 /* AuthViewModel.swift */; };
-		A7A95A8728EC2CF100081577 /* FirebaseUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A95A8628EC2CF100081577 /* FirebaseUser.swift */; };
 		A7AE38CD28ED631000112329 /* PollService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38CC28ED631000112329 /* PollService.swift */; };
 		A7AE38CF28EF391700112329 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38CE28EF391700112329 /* HomeScreenViewModel.swift */; };
 		A7AE38D128F0186900112329 /* NewPollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38D028F0186900112329 /* NewPollView.swift */; };
@@ -81,7 +80,6 @@
 		A716DE55289C21E300D65C8A /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		A77A9B5828C0F78200616243 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A77A9B8628C1152800616243 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		A7A95A8628EC2CF100081577 /* FirebaseUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUser.swift; sourceTree = "<group>"; };
 		A7AE38CC28ED631000112329 /* PollService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollService.swift; sourceTree = "<group>"; };
 		A7AE38CE28EF391700112329 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		A7AE38D028F0186900112329 /* NewPollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPollView.swift; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				A716DE55289C21E300D65C8A /* Poll.swift */,
-				A7A95A8628EC2CF100081577 /* FirebaseUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -415,7 +412,6 @@
 				A7AE38CD28ED631000112329 /* PollService.swift in Sources */,
 				A77A9B8728C1152800616243 /* AuthViewModel.swift in Sources */,
 				A7AE38D428F0188500112329 /* NewPollViewModel.swift in Sources */,
-				A7A95A8728EC2CF100081577 /* FirebaseUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

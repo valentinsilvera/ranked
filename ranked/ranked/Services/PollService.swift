@@ -9,11 +9,12 @@ import Firebase
 import UIKit
 
 struct PollService {
-    func uploadPoll(title: String, options: [String], completion: @escaping(Bool) -> Void) {
+    func uploadPoll(title: String, creator: String, options: [String], completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         let data = ["uid": uid,
                     "title": title,
+                    "creator": creator,
                     "options": options,
                     "timestamp": Timestamp(date: Date()),
                     "isClosed": false,
