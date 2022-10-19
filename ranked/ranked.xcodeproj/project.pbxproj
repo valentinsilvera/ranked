@@ -45,6 +45,7 @@
 		A7AE38D428F0188500112329 /* NewPollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38D328F0188500112329 /* NewPollViewModel.swift */; };
 		A7AE38DB28F80A0B00112329 /* VoteScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38DA28F80A0B00112329 /* VoteScreenViewModel.swift */; };
 		A7AE38E128FE891D00112329 /* DroppableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38E028FE891D00112329 /* DroppableList.swift */; };
+		A7AE38E328FFF47E00112329 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38E228FFF47E00112329 /* User.swift */; };
 		A7C0C18C289C2D2E0058501F /* VoteScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		A7AE38D328F0188500112329 /* NewPollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPollViewModel.swift; sourceTree = "<group>"; };
 		A7AE38DA28F80A0B00112329 /* VoteScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreenViewModel.swift; sourceTree = "<group>"; };
 		A7AE38E028FE891D00112329 /* DroppableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppableList.swift; sourceTree = "<group>"; };
+		A7AE38E228FFF47E00112329 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -211,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				A716DE55289C21E300D65C8A /* Poll.swift */,
+				A7AE38E228FFF47E00112329 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7AE38E328FFF47E00112329 /* User.swift in Sources */,
 				A716DE2A289C1DA600D65C8A /* HomeScreenView.swift in Sources */,
 				A7AE38E128FE891D00112329 /* DroppableList.swift in Sources */,
 				A7AE38CF28EF391700112329 /* HomeScreenViewModel.swift in Sources */,

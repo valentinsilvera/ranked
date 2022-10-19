@@ -9,12 +9,16 @@ import SwiftUI
 import UIKit
 
 struct VoteScreenView: View {
-    var poll: Poll
-    @ObservedObject var viewModel = VoteScreenViewModel()
+//    var poll: Poll
+    @ObservedObject var viewModel: VoteScreenViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var noPreferenceList = [String]()
     @State private var preferenceList = [String]()
     @State private var showConfirmation = false
+    
+    init(poll: Poll) {
+        self.viewModel = VoteScreenViewModel(poll: poll)
+    }
     
     var body: some View {
         ZStack {
@@ -22,7 +26,7 @@ struct VoteScreenView: View {
                 .ignoresSafeArea()
             
             VStack(alignment: .leading) {
-                Text(poll.title)
+                Text(viewModel.poll.title)
                     .font(.largeTitle)
                     .padding(.horizontal)
                     .bold()

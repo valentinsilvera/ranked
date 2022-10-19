@@ -47,8 +47,49 @@ struct PollService {
             }
     }
     
-    func uploadVote(options: [String], completion: @escaping(Bool) -> Void) {
-        print("DEBUG: Vote uploaded with options: \(options)")
-        completion(true)
+    func uploadVote(poll: Poll, options: [String], completion: @escaping(Bool) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let pollId = poll.id else { return }
+
+        let userVotesRef = Firestore.firestore()
+            .collection("users")
+            .document(uid)
+            .collection("voted-polls")
+
+        Firestore.firestore()
+            .collection("polls")
+            .document(pollId)
+            .updateData(["votes": FieldValue.arrayUnion(options)]) { _ in
+                userVotesRef.document(pollId).setData([:]) { _ in
+                    print("DEBUG: Vote uploaded with options: \(options)")
+                    completion(true)
+                }
+            }
     }
+    
+//    func checkIfUserVotedPoll(_ poll: Poll, completion: @escaping(Bool) -> Void) {
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        guard let pollId = poll.id else { return }
+//
+//        Firestore.firestore()
+//            .collection("users")
+//            .document(uid).collection("voted-polls")
+//            .document(pollId).getDocument { snapshot, _ in
+//                guard let snapshot = snapshot else { return }
+//                completion(snapshot.exists)
+//            }
+//    }
+    
+//    func checkIfUserCreatedPoll(_ poll: Poll, completion: @escaping(Bool) -> Void) {
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        guard let pollId = poll.id else { return }
+//
+//        Firestore.firestore()
+//            .collection("users")
+//            .document(uid).collection("created-polls")
+//            .document(chirpId).getDocument { snapshot, _ in
+//                guard let snapshot = snapshot else { return }
+//                completion(snapshot.exists)
+//            }
+//    }
 }

@@ -21,4 +21,8 @@ class HomeScreenViewModel: ObservableObject {
             print("DEBUG: \(polls)")
         }
     }
+    
+    func fetchVotes() {
+        
+    }
 }
