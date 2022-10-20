@@ -17,14 +17,13 @@ class VoteScreenViewModel: ObservableObject {
     }
     
     func uploadVote(withOptions options: [String]) {
-        guard let uid = AuthViewModel.shared.userSession?.uid else { return }
-        let userVotesRef = Firestore.firestore().collection("users").document(uid).collection("voted-polls")
-        
-        service.uploadVote(poll: Poll, options: options) { success in
+        service.uploadVote(poll: poll, options: options) { success in
             if success {
                 self.didUploadVote = true
+                print("DEBUG: \(options)")
             } else {
                 print("DEBUG: Failed to upload vote")
+                print("DEBUG: \(options)")
             }
         }
     }

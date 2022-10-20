@@ -42,7 +42,6 @@ struct PollService {
                 }
                 
                 let polls = documents.compactMap({ try? $0.data(as: Poll.self)})
-                print("DEBUG: \(polls)")
                 completion(polls)
             }
     }
@@ -59,26 +58,34 @@ struct PollService {
         Firestore.firestore()
             .collection("polls")
             .document(pollId)
-            .updateData(["votes": FieldValue.arrayUnion(options)]) { _ in
-                userVotesRef.document(pollId).setData([:]) { _ in
-                    print("DEBUG: Vote uploaded with options: \(options)")
+            .collection("votes")
+            .document()
+            .setData([uid:options]) { error in
+                if let error {
+                    print("DEBUG: Failed to upload vote with error \(error)")
+                    completion(false)
+                    return
+                } else {
+                    userVotesRef.document(pollId).setData([:])
                     completion(true)
                 }
+
             }
     }
     
-//    func checkIfUserVotedPoll(_ poll: Poll, completion: @escaping(Bool) -> Void) {
-//        guard let uid = Auth.auth().currentUser?.uid else { return }
-//        guard let pollId = poll.id else { return }
-//
-//        Firestore.firestore()
-//            .collection("users")
-//            .document(uid).collection("voted-polls")
-//            .document(pollId).getDocument { snapshot, _ in
-//                guard let snapshot = snapshot else { return }
-//                completion(snapshot.exists)
-//            }
-//    }
+    func checkIfUserVotedOnPoll(_ poll: Poll, completion: @escaping(Bool) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let pollId = poll.id else { return }
+
+        Firestore.firestore()
+            .collection("users")
+            .document(uid)
+            .collection("voted-polls")
+            .document(pollId).getDocument { snapshot, _ in
+                guard let snapshot = snapshot else { return }
+                completion(snapshot.exists)
+            }
+    }
     
 //    func checkIfUserCreatedPoll(_ poll: Poll, completion: @escaping(Bool) -> Void) {
 //        guard let uid = Auth.auth().currentUser?.uid else { return }

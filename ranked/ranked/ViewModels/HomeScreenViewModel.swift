@@ -18,11 +18,6 @@ class HomeScreenViewModel: ObservableObject {
     func fetchPolls() {
         service.fetchPolls { polls in
             self.polls = polls
-            print("DEBUG: \(polls)")
         }
-    }
-    
-    func fetchVotes() {
-        
     }
 }

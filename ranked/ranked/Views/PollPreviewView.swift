@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct PollPreviewView: View {
-    let poll: Poll
+    @ObservedObject var viewModel: PollPreviewViewModel
+    
+    init(poll: Poll) {
+        self.viewModel = PollPreviewViewModel(poll: poll)
+    }
     
     var body: some View {
         ZStack {
@@ -24,17 +28,17 @@ struct PollPreviewView: View {
                         .resizable()
                         .frame(width: 32, height: 32)
                     
-                    Text(poll.title)
+                    Text(viewModel.poll.title)
                         .font(.title2)
                     
-                    Text("by \(poll.creator)")
+                    Text("by \(viewModel.poll.creator)")
                         .font(.callout)
                 }
                 
                 Spacer()
                 
                 VStack{
-                    if poll.votedOn ?? false {
+                    if viewModel.poll.votedOn ?? false {
                         Image(systemName: "checkmark.circle.fill")
                             .resizable()
                             .frame(width: 24, height: 24)

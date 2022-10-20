@@ -31,7 +31,7 @@ struct VoteScreenView: View {
                     .padding(.horizontal)
                     .bold()
                 
-                Text("by \(poll.creator)")
+                Text("by \(viewModel.poll.creator)")
                     .padding(.horizontal)
                     .padding(.top, 2)
                 
@@ -66,7 +66,7 @@ struct VoteScreenView: View {
                 }
                 .confirmationDialog("Submit this vote? You won't be able to change it afterwards!", isPresented: $showConfirmation, titleVisibility: .visible) {
                     Button {
-                        dismiss()
+                        viewModel.uploadVote(withOptions: preferenceList)
                     } label: {
                         Text("Yes")
                     }
@@ -80,7 +80,7 @@ struct VoteScreenView: View {
         }
         // this sets instance properties that need other instance properties initialized before
         .onAppear {
-            noPreferenceList = poll.options
+            noPreferenceList = viewModel.poll.options
         }
         .padding(.top, -40)
     }
