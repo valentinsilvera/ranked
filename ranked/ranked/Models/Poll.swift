@@ -15,7 +15,6 @@ struct Poll: Identifiable, Codable {
     let title: String
     let creator: String
     let options: [String]
-    let votes: [String]?
     let timestamp: Timestamp
     let deadline: Date?
     var isClosed: Bool
@@ -24,4 +23,4 @@ struct Poll: Identifiable, Codable {
     var votedOn: Bool?
 }
 
-let onboardingPoll = Poll(uid: "uid", title: "Onboarding Poll", creator: "The Creator", options: ["Option 1", "Option 2"], votes: nil, timestamp: Timestamp(), deadline: nil, isClosed: false, result: nil)
+let onboardingPoll = Poll(uid: "uid", title: "Onboarding Poll", creator: "The Creator", options: ["Option 1", "Option 2"], timestamp: Timestamp(), deadline: nil, isClosed: false, result: nil)

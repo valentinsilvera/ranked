@@ -10,7 +10,7 @@ import SwiftUI
 
 final class AuthViewModel: ObservableObject {
     
-    @Published var user: User?
+    @Published var user: FirebaseAuth.User?
     
     func listenToAuthState() {
         Auth.auth().addStateDidChangeListener { [weak self] _, user in

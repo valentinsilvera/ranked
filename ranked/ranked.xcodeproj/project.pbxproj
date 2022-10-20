@@ -45,6 +45,9 @@
 		A7AE38D428F0188500112329 /* NewPollViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38D328F0188500112329 /* NewPollViewModel.swift */; };
 		A7AE38DB28F80A0B00112329 /* VoteScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38DA28F80A0B00112329 /* VoteScreenViewModel.swift */; };
 		A7AE38E128FE891D00112329 /* DroppableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38E028FE891D00112329 /* DroppableList.swift */; };
+		A7AE38E328FFF47E00112329 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38E228FFF47E00112329 /* User.swift */; };
+		A7AE38E5290136F000112329 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38E4290136F000112329 /* Vote.swift */; };
+		A7AE38E729018AA700112329 /* PollPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38E629018AA700112329 /* PollPreviewViewModel.swift */; };
 		A7C0C18C289C2D2E0058501F /* VoteScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +89,9 @@
 		A7AE38D328F0188500112329 /* NewPollViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPollViewModel.swift; sourceTree = "<group>"; };
 		A7AE38DA28F80A0B00112329 /* VoteScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreenViewModel.swift; sourceTree = "<group>"; };
 		A7AE38E028FE891D00112329 /* DroppableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppableList.swift; sourceTree = "<group>"; };
+		A7AE38E228FFF47E00112329 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A7AE38E4290136F000112329 /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
+		A7AE38E629018AA700112329 /* PollPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollPreviewViewModel.swift; sourceTree = "<group>"; };
 		A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,10 +205,10 @@
 		A716DE53289C21C400D65C8A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A716DE51289C1DEB00D65C8A /* PollPreviewView.swift */,
 				A716DE29289C1DA600D65C8A /* HomeScreenView.swift */,
-				A7AE38D028F0186900112329 /* NewPollView.swift */,
 				A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */,
+				A7AE38D028F0186900112329 /* NewPollView.swift */,
+				A716DE51289C1DEB00D65C8A /* PollPreviewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,6 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				A716DE55289C21E300D65C8A /* Poll.swift */,
+				A7AE38E4290136F000112329 /* Vote.swift */,
+				A7AE38E228FFF47E00112329 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,9 +227,10 @@
 			isa = PBXGroup;
 			children = (
 				A77A9B8628C1152800616243 /* AuthViewModel.swift */,
-				A7AE38D328F0188500112329 /* NewPollViewModel.swift */,
 				A7AE38CE28EF391700112329 /* HomeScreenViewModel.swift */,
 				A7AE38DA28F80A0B00112329 /* VoteScreenViewModel.swift */,
+				A7AE38D328F0188500112329 /* NewPollViewModel.swift */,
+				A7AE38E629018AA700112329 /* PollPreviewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -400,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7AE38E328FFF47E00112329 /* User.swift in Sources */,
 				A716DE2A289C1DA600D65C8A /* HomeScreenView.swift in Sources */,
 				A7AE38E128FE891D00112329 /* DroppableList.swift in Sources */,
 				A7AE38CF28EF391700112329 /* HomeScreenViewModel.swift in Sources */,
@@ -409,7 +419,9 @@
 				A7AE38D128F0186900112329 /* NewPollView.swift in Sources */,
 				A716DE52289C1DEB00D65C8A /* PollPreviewView.swift in Sources */,
 				A716DE56289C21E300D65C8A /* Poll.swift in Sources */,
+				A7AE38E729018AA700112329 /* PollPreviewViewModel.swift in Sources */,
 				A7AE38CD28ED631000112329 /* PollService.swift in Sources */,
+				A7AE38E5290136F000112329 /* Vote.swift in Sources */,
 				A77A9B8728C1152800616243 /* AuthViewModel.swift in Sources */,
 				A7AE38D428F0188500112329 /* NewPollViewModel.swift in Sources */,
 			);

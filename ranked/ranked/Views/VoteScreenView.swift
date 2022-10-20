@@ -9,12 +9,16 @@ import SwiftUI
 import UIKit
 
 struct VoteScreenView: View {
-    var poll: Poll
-    @ObservedObject var viewModel = VoteScreenViewModel()
+//    var poll: Poll
+    @ObservedObject var viewModel: VoteScreenViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var noPreferenceList = [String]()
     @State private var preferenceList = [String]()
     @State private var showConfirmation = false
+    
+    init(poll: Poll) {
+        self.viewModel = VoteScreenViewModel(poll: poll)
+    }
     
     var body: some View {
         ZStack {
@@ -22,12 +26,12 @@ struct VoteScreenView: View {
                 .ignoresSafeArea()
             
             VStack(alignment: .leading) {
-                Text(poll.title)
+                Text(viewModel.poll.title)
                     .font(.largeTitle)
                     .padding(.horizontal)
                     .bold()
                 
-                Text("by \(poll.creator)")
+                Text("by \(viewModel.poll.creator)")
                     .padding(.horizontal)
                     .padding(.top, 2)
                 
@@ -62,7 +66,7 @@ struct VoteScreenView: View {
                 }
                 .confirmationDialog("Submit this vote? You won't be able to change it afterwards!", isPresented: $showConfirmation, titleVisibility: .visible) {
                     Button {
-                        dismiss()
+                        viewModel.uploadVote(withOptions: preferenceList)
                     } label: {
                         Text("Yes")
                     }
@@ -76,7 +80,7 @@ struct VoteScreenView: View {
         }
         // this sets instance properties that need other instance properties initialized before
         .onAppear {
-            noPreferenceList = poll.options
+            noPreferenceList = viewModel.poll.options
         }
         .padding(.top, -40)
     }

@@ -42,13 +42,61 @@ struct PollService {
                 }
                 
                 let polls = documents.compactMap({ try? $0.data(as: Poll.self)})
-                print("DEBUG: \(polls)")
                 completion(polls)
             }
     }
     
-    func uploadVote(options: [String], completion: @escaping(Bool) -> Void) {
-        print("DEBUG: Vote uploaded with options: \(options)")
-        completion(true)
+    func uploadVote(poll: Poll, options: [String], completion: @escaping(Bool) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let pollId = poll.id else { return }
+
+        let userVotesRef = Firestore.firestore()
+            .collection("users")
+            .document(uid)
+            .collection("voted-polls")
+
+        Firestore.firestore()
+            .collection("polls")
+            .document(pollId)
+            .collection("votes")
+            .document()
+            .setData([uid:options]) { error in
+                if let error {
+                    print("DEBUG: Failed to upload vote with error \(error)")
+                    completion(false)
+                    return
+                } else {
+                    userVotesRef.document(pollId).setData([:])
+                    completion(true)
+                }
+
+            }
     }
+    
+    func checkIfUserVotedOnPoll(_ poll: Poll, completion: @escaping(Bool) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let pollId = poll.id else { return }
+
+        Firestore.firestore()
+            .collection("users")
+            .document(uid)
+            .collection("voted-polls")
+            .document(pollId).getDocument { snapshot, _ in
+                guard let snapshot = snapshot else { return }
+                completion(snapshot.exists)
+            }
+    }
+    
+//    func checkIfUserCreatedPoll(_ poll: Poll, completion: @escaping(Bool) -> Void) {
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        guard let pollId = poll.id else { return }
+//
+//        Firestore.firestore()
+//            .collection("users")
+//            .document(uid).collection("created-polls")
+//            .document(chirpId).getDocument { snapshot, _ in
+//                guard let snapshot = snapshot else { return }
+//                completion(snapshot.exists)
+//            }
+//    }
 }
