@@ -87,6 +87,26 @@ struct PollService {
             }
     }
     
+    func checkForUsersVoteOnPoll(_ poll: Poll, completion: @escaping(Vote) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let pollId = poll.id else { return }
+        
+        Firestore.firestore()
+            .collection("users")
+            .document(uid)
+            .collection("voted-polls")
+            .getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else {
+                    print("DEBUG: No votes document")
+                    return
+                }
+                
+                let votes = documents
+                print("DEBUG: \(votes)")
+//                completion(votes)
+            }
+    }
+    
 //    func checkIfUserCreatedPoll(_ poll: Poll, completion: @escaping(Bool) -> Void) {
 //        guard let uid = Auth.auth().currentUser?.uid else { return }
 //        guard let pollId = poll.id else { return }

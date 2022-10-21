@@ -15,47 +15,58 @@ struct PollPreviewView: View {
     }
     
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 25, style: .continuous)
-                .fill(LinearGradient(colors: [.pink, .purple],
-                                     startPoint: .topLeading,
-                                     endPoint: .bottomTrailing))
-                .frame(maxWidth: UIScreen.main.bounds.size.width, minHeight: 100, maxHeight: 120)
-            
-            HStack {
-                VStack(alignment: .leading) {
-                    Image(systemName: "star.bubble.fill")
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                    
-                    Text(viewModel.poll.title)
-                        .font(.title2)
-                    
-                    Text("by \(viewModel.poll.creator)")
-                        .font(.callout)
-                }
+        NavigationLink(destination: getDestination(votedOn: viewModel.poll.votedOn ?? false)) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 25, style: .continuous)
+                    .fill(LinearGradient(colors: [.pink, .purple],
+                                         startPoint: .topLeading,
+                                         endPoint: .bottomTrailing))
+                    .frame(maxWidth: UIScreen.main.bounds.size.width, minHeight: 100, maxHeight: 120)
                 
-                Spacer()
-                
-                VStack{
-                    if viewModel.poll.votedOn ?? false {
-                        Image(systemName: "checkmark.circle.fill")
+                HStack {
+                    VStack(alignment: .leading) {
+                        Image(systemName: "star.bubble.fill")
                             .resizable()
-                            .frame(width: 24, height: 24)
+                            .frame(width: 32, height: 32)
+                        
+                        Text(viewModel.poll.title)
+                            .font(.title2)
+                        
+                        Text("by \(viewModel.poll.creator)")
+                            .font(.callout)
                     }
                     
-                    HStack {
-                        Image(systemName: "person.3.fill")
-                        Text("0")
+                    Spacer()
+                    
+                    VStack{
+                        if viewModel.poll.votedOn ?? false {
+                            Image(systemName: "checkmark.circle.fill")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                        }
+                        
+                        HStack {
+                            Image(systemName: "person.3.fill")
+                            Text("0")
+                        }
                     }
+                    
                 }
-                
+                .padding(12)
+                .foregroundColor(.white)
             }
-            .padding(12)
-            .foregroundColor(.white)
+            .padding(.top, 8)
+            .padding([.leading, .trailing])
         }
-        .padding(.top, 8)
-        .padding([.leading, .trailing])
+    }
+    
+    //this function calculates which view to return
+    func getDestination(votedOn: Bool) -> AnyView {
+        if votedOn {
+            return AnyView(DidVoteScreenView(poll: viewModel.poll))
+        } else {
+            return AnyView(VoteScreenView(poll: viewModel.poll))
+        }
     }
 }
 
