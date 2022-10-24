@@ -37,7 +37,7 @@ struct PollService {
             .order(by: "timestamp", descending: true)
             .getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else {
-                    print("DEBUG: No documents")
+                    print("DEBUG: No documents for polls")
                     return
                 }
                 
@@ -59,7 +59,7 @@ struct PollService {
             .collection("polls")
             .document(pollId)
             .collection("votes")
-            .document()
+            .document(uid)
             .setData([uid:options]) { error in
                 if let error {
                     print("DEBUG: Failed to upload vote with error \(error)")
@@ -87,23 +87,24 @@ struct PollService {
             }
     }
     
-    func checkForUsersVoteOnPoll(_ poll: Poll, completion: @escaping(Vote) -> Void) {
+    func checkForUserVoteOnPoll(_ poll: Poll, completion: @escaping(Vote) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let pollId = poll.id else { return }
         
         Firestore.firestore()
-            .collection("users")
-            .document(uid)
-            .collection("voted-polls")
+            .collection("polls")
+            .document(pollId)
+            .collection("votes")
+            .whereField("Document ID", isEqualTo: uid)
             .getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else {
-                    print("DEBUG: No votes document")
+                    print("DEBUG: No document for vote")
                     return
                 }
                 
-                let votes = documents
-                print("DEBUG: \(votes)")
-//                completion(votes)
+                let vote = documents.compactMap({ try? $0.data(as: Vote.self)})
+                print("DEBUG: vote is \(vote)")
+//                completion(vote)
             }
     }
     

@@ -72,6 +72,9 @@ struct DidVoteScreenView: View {
             }
         }
         .padding(.top, -40)
+        .onAppear {
+            viewModel.checkForUserVoteOnPoll()
+        }
     }
 }
 

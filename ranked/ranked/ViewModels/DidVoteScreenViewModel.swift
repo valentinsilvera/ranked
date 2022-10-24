@@ -15,14 +15,18 @@ class DidVoteScreenViewModel: ObservableObject {
     
     init(poll: Poll) {
         self.poll = poll
+//        checkForUserVoteOnPoll()
     }
     
     func removeOptions() {
         var options = poll.options
-        
+//        checkForUserVoteOnPoll()
     }
     
-    func checkForUsersVoteOnPoll() {
-        
+    func checkForUserVoteOnPoll() {
+        service.checkForUserVoteOnPoll(self.poll) { vote in
+            print("DEBUG: \(vote)")
+            print("DEBUG: \(self.poll)")
+        }
     }
 }

@@ -20,10 +20,8 @@ class VoteScreenViewModel: ObservableObject {
         service.uploadVote(poll: poll, options: options) { success in
             if success {
                 self.didUploadVote = true
-                print("DEBUG: \(options)")
             } else {
                 print("DEBUG: Failed to upload vote")
-                print("DEBUG: \(options)")
             }
         }
     }
