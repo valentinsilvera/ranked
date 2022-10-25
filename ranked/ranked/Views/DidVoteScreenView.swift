@@ -27,9 +27,9 @@ struct DidVoteScreenView: View {
                     .padding(.horizontal)
                     .bold()
                 
-                Text("by \(viewModel.poll.creator)")
+                Text("created by \(viewModel.poll.creator)")
+                    .font(.headline)
                     .padding(.horizontal)
-                    .padding(.top, 2)
                 
                 List{
                     Section(header: Text("Ranked options:")) {

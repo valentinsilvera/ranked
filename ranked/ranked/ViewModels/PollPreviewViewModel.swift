@@ -9,11 +9,14 @@ import Foundation
 
 class PollPreviewViewModel: ObservableObject {
     @Published var poll: Poll
+    @Published var votes = [Vote]()
+//    @Published var voteCount = 0
     private let service = PollService()
     
     init(poll: Poll) {
         self.poll = poll
         checkIfUserVotedOnPoll()
+        fetchVotes()
     }
     
     func checkIfUserVotedOnPoll() {
@@ -21,6 +24,12 @@ class PollPreviewViewModel: ObservableObject {
             if votedOn {
                 self.poll.votedOn = true
             }
+        }
+    }
+    
+    func fetchVotes() {
+        service.fetchVotes(poll) { votes in
+            self.votes = votes
         }
     }
 }

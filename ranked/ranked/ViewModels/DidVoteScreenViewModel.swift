@@ -29,7 +29,6 @@ class DidVoteScreenViewModel: ObservableObject {
     func checkIfUserCreatedPoll() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         if self.poll.uid == uid {
-            print("DEBUG: \(self.poll.uid == uid)")
             self.isCreator = true
         }
     }
