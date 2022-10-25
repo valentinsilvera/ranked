@@ -65,18 +65,6 @@ struct DidVoteScreenView: View {
                         .clipShape(Capsule())
                         .padding()
                 }
-                
-                Button {
-                    dismiss()
-                } label: {
-                    Text("Go Back")
-                        .font(.headline)
-                        .foregroundColor(.black)
-                        .frame(width: 360, height: 50)
-                        .background(Color.white)
-                        .clipShape(Capsule())
-                        .padding()
-                }
             }
         }
         .padding(.top, -40)

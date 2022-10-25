@@ -103,7 +103,6 @@ struct PollService {
                 }
                 
                 if let vote = document[uid] as? [String] {
-                    print("DEBUG: vote is \(vote)")
                     completion(vote)
                 }
             }
