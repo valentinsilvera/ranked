@@ -29,7 +29,7 @@ final class AuthViewModel: ObservableObject {
         do {
             try Auth.auth().signOut()
         } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
+            print("DEBUG: Error signing out: \(signOutError)")
         }
     }
 }

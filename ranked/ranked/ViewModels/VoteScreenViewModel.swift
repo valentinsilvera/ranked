@@ -10,6 +10,8 @@ import Firebase
 class VoteScreenViewModel: ObservableObject {
     @Published var poll: Poll
     @Published var didUploadVote = false
+    @Published var didClosePoll = false
+    @Published var isCreator = false
     let service = PollService()
     
     init(poll: Poll) {
@@ -22,6 +24,22 @@ class VoteScreenViewModel: ObservableObject {
                 self.didUploadVote = true
             } else {
                 print("DEBUG: Failed to upload vote")
+            }
+        }
+    }
+    
+    func checkIfUserCreatedPoll() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        if self.poll.uid == uid {
+            print("DEBUG: \(self.poll.uid == uid)")
+            self.isCreator = true
+        }
+    }
+    
+    func closePoll() {
+        if isCreator {
+            service.closePoll(poll: poll) { didClose in
+                self.didClosePoll = didClose
             }
         }
     }
