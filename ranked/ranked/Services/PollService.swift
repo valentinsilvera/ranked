@@ -49,12 +49,12 @@ struct PollService {
     func uploadVote(poll: Poll, options: [String], completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let pollId = poll.id else { return }
-
+        
         let userVotesRef = Firestore.firestore()
             .collection("users")
             .document(uid)
             .collection("voted-polls")
-
+        
         Firestore.firestore()
             .collection("polls")
             .document(pollId)
@@ -69,14 +69,14 @@ struct PollService {
                     userVotesRef.document(pollId).setData([:])
                     completion(true)
                 }
-
+                
             }
     }
     
     func checkIfUserVotedOnPoll(_ poll: Poll, completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let pollId = poll.id else { return }
-
+        
         Firestore.firestore()
             .collection("users")
             .document(uid)
@@ -108,16 +108,15 @@ struct PollService {
             }
     }
     
-//    func checkIfUserCreatedPoll(_ poll: Poll, completion: @escaping(Bool) -> Void) {
-//        guard let uid = Auth.auth().currentUser?.uid else { return }
-//        guard let pollId = poll.id else { return }
-//
-//        Firestore.firestore()
-//            .collection("users")
-//            .document(uid).collection("created-polls")
-//            .document(chirpId).getDocument { snapshot, _ in
-//                guard let snapshot = snapshot else { return }
-//                completion(snapshot.exists)
-//            }
-//    }
+    func closePoll(poll: Poll, completion: @escaping(Bool) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let pollId = poll.id else { return }
+        
+        Firestore.firestore()
+            .collection("polls")
+            .document(pollId)
+            .updateData(["isClosed" : true]) { _ in
+                completion(true)
+            }
+    }
 }

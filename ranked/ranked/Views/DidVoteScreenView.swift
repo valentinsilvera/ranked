@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DidVoteScreenView: View {
+    @State private var showConfirmation = false
     @ObservedObject var viewModel: DidVoteScreenViewModel
     @Environment(\.dismiss) private var dismiss
     
@@ -54,6 +55,32 @@ struct DidVoteScreenView: View {
                 
                 Spacer()
                 
+                if viewModel.isCreator {
+                    Button {
+                        showConfirmation = true
+                    } label: {
+                        Text("Close Poll")
+                            .font(.headline)
+                            .foregroundColor(.red)
+                            .frame(width: 360, height: 50)
+                            .background(Color.white)
+                            .clipShape(Capsule())
+                            .padding([.horizontal, .top])
+                    }
+                    .confirmationDialog("Close this poll? People won't be able to vote anymore, and results will be calculated", isPresented: $showConfirmation, titleVisibility: .visible) {
+                        Button {
+                            viewModel.closePoll()
+                        } label: {
+                            Text("Yes")
+                        }
+                        .onReceive(viewModel.$didClosePoll) { success in
+                            if success {
+                                dismiss()
+                            }
+                        }
+                    }
+                }
+                
                 Button {
                     dismiss()
                 } label: {
@@ -63,13 +90,15 @@ struct DidVoteScreenView: View {
                         .frame(width: 360, height: 50)
                         .background(Color.white)
                         .clipShape(Capsule())
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.vertical, 8)
                 }
             }
         }
         .padding(.top, -40)
         .onAppear {
             viewModel.checkForUserVoteOnPoll()
+            viewModel.checkIfUserCreatedPoll()
         }
     }
 }

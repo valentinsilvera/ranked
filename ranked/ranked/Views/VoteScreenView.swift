@@ -51,6 +51,32 @@ struct VoteScreenView: View {
                 
                 Spacer()
                 
+                if viewModel.isCreator {
+                    Button {
+                        showConfirmation = true
+                    } label: {
+                        Text("Close Poll")
+                            .font(.headline)
+                            .foregroundColor(.red)
+                            .frame(width: 360, height: 50)
+                            .background(Color.white)
+                            .clipShape(Capsule())
+                            .padding([.horizontal, .top])
+                    }
+                    .confirmationDialog("Close this poll? People won't be able to vote anymore, and results will be calculated", isPresented: $showConfirmation, titleVisibility: .visible) {
+                        Button {
+                            viewModel.closePoll()
+                        } label: {
+                            Text("Yes")
+                        }
+                        .onReceive(viewModel.$didClosePoll) { success in
+                            if success {
+                                dismiss()
+                            }
+                        }
+                    }
+                }
+                
                 Button {
                     showConfirmation = true
                 } label: {
@@ -60,7 +86,8 @@ struct VoteScreenView: View {
                         .frame(width: 360, height: 50)
                         .background(Color.white)
                         .clipShape(Capsule())
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.vertical, 8)
                 }
                 .confirmationDialog("Submit this vote? You won't be able to change it afterwards!", isPresented: $showConfirmation, titleVisibility: .visible) {
                     Button {
@@ -79,6 +106,7 @@ struct VoteScreenView: View {
         // this sets instance properties that need other instance properties initialized before
         .onAppear {
             noPreferenceList = viewModel.poll.options
+            viewModel.checkIfUserCreatedPoll()
         }
         .padding(.top, -40)
     }

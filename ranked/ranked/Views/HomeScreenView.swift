@@ -48,6 +48,7 @@ struct HomeScreenView: View {
                 }
             }
         }
+        .accentColor(.white)
         .onAppear() {
             authVM.signInAnonymously()
         }
