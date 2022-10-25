@@ -87,7 +87,7 @@ struct PollService {
             }
     }
     
-    func checkForUserVoteOnPoll(_ poll: Poll, completion: @escaping(Vote) -> Void) {
+    func checkForUserVoteOnPoll(_ poll: Poll, completion: @escaping([String]) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let pollId = poll.id else { return }
         
@@ -95,16 +95,17 @@ struct PollService {
             .collection("polls")
             .document(pollId)
             .collection("votes")
-            .whereField("Document ID", isEqualTo: uid)
-            .getDocuments { snapshot, _ in
-                guard let documents = snapshot?.documents else {
+            .document(uid)
+            .getDocument { snapshot, _ in
+                guard let document = snapshot?.data() as? [String:Any] else {
                     print("DEBUG: No document for vote")
                     return
                 }
                 
-                let vote = documents.compactMap({ try? $0.data(as: Vote.self)})
-                print("DEBUG: vote is \(vote)")
-//                completion(vote)
+                if let vote = document[uid] as? [String] {
+                    print("DEBUG: vote is \(vote)")
+                    completion(vote)
+                }
             }
     }
     

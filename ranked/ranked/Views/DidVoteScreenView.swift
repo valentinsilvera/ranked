@@ -36,8 +36,9 @@ struct DidVoteScreenView: View {
                             Text("You didn't rank any of the options")
                                 .foregroundColor(.gray)
                         } else {
-                            ForEach(viewModel.ranked) { vote in
-                                Text("vote.")
+                            ForEach(Array(zip(viewModel.ranked.indices, viewModel.ranked)),
+                                    id: \.0) { index, vote in
+                                Text("\(index+1) - \(vote)")
                             }
                         }
                     }
@@ -53,10 +54,17 @@ struct DidVoteScreenView: View {
                 
                 Spacer()
                 
-                Text("Some disclaimer about the fact that votes can't be modified")
-                    .font(.footnote)
-                    .padding(.horizontal)
-                    .foregroundColor(.white)
+                Button {
+                    dismiss()
+                } label: {
+                    Text("Go Back")
+                        .font(.headline)
+                        .foregroundColor(.black)
+                        .frame(width: 360, height: 50)
+                        .background(Color.white)
+                        .clipShape(Capsule())
+                        .padding()
+                }
                 
                 Button {
                     dismiss()

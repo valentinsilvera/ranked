@@ -9,24 +9,18 @@ import Firebase
 
 class DidVoteScreenViewModel: ObservableObject {
     @Published var poll: Poll
-    @Published var ranked = [Vote]()
+    @Published var ranked = [String]()
     @Published var unranked = [String]()
     let service = PollService()
     
     init(poll: Poll) {
         self.poll = poll
-//        checkForUserVoteOnPoll()
-    }
-    
-    func removeOptions() {
-        var options = poll.options
-//        checkForUserVoteOnPoll()
     }
     
     func checkForUserVoteOnPoll() {
         service.checkForUserVoteOnPoll(self.poll) { vote in
-            print("DEBUG: \(vote)")
-            print("DEBUG: \(self.poll)")
+            self.ranked = vote
+            self.unranked = self.poll.options.filter { !self.ranked.contains($0) }
         }
     }
 }
