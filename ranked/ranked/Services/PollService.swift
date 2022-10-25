@@ -37,7 +37,7 @@ struct PollService {
             .order(by: "timestamp", descending: true)
             .getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else {
-                    print("DEBUG: No documents")
+                    print("DEBUG: No documents for polls")
                     return
                 }
                 
@@ -59,7 +59,7 @@ struct PollService {
             .collection("polls")
             .document(pollId)
             .collection("votes")
-            .document()
+            .document(uid)
             .setData([uid:options]) { error in
                 if let error {
                     print("DEBUG: Failed to upload vote with error \(error)")
@@ -84,6 +84,27 @@ struct PollService {
             .document(pollId).getDocument { snapshot, _ in
                 guard let snapshot = snapshot else { return }
                 completion(snapshot.exists)
+            }
+    }
+    
+    func checkForUserVoteOnPoll(_ poll: Poll, completion: @escaping([String]) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let pollId = poll.id else { return }
+        
+        Firestore.firestore()
+            .collection("polls")
+            .document(pollId)
+            .collection("votes")
+            .document(uid)
+            .getDocument { snapshot, _ in
+                guard let document = snapshot?.data() as? [String:Any] else {
+                    print("DEBUG: No document for vote")
+                    return
+                }
+                
+                if let vote = document[uid] as? [String] {
+                    completion(vote)
+                }
             }
     }
     

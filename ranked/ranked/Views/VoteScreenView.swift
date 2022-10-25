@@ -6,10 +6,8 @@
 //
 
 import SwiftUI
-import UIKit
 
 struct VoteScreenView: View {
-//    var poll: Poll
     @ObservedObject var viewModel: VoteScreenViewModel
     @Environment(\.dismiss) private var dismiss
     @State private var noPreferenceList = [String]()
