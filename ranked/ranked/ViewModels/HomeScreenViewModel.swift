@@ -12,7 +12,7 @@ class HomeScreenViewModel: ObservableObject {
     let service = PollService()
     
     init() {
-        fetchPolls()
+//        fetchPolls()
     }
     
     func fetchPolls() {

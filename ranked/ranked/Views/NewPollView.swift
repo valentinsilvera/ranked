@@ -92,6 +92,7 @@ struct NewPollView: View {
                 }
             }
             .onReceive(viewModel.$didUploadPoll) { success in
+                print("DEBUG: \(viewModel.$didUploadPoll)")
                 if success {
                     dismiss()
                 }

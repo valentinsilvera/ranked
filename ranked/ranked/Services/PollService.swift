@@ -20,7 +20,9 @@ struct PollService {
                     "isClosed": false,
                     "results": [""]] as [String : Any]
         
-        Firestore.firestore().collection("polls").document()
+        Firestore.firestore()
+            .collection("polls")
+            .document()
             .setData(data) { error in
                 if let error {
                     print("DEBUG: Failed with error: \(error.localizedDescription)")
@@ -36,7 +38,7 @@ struct PollService {
         Firestore.firestore()
             .collection("polls")
             .order(by: "timestamp", descending: true)
-            .getDocuments { snapshot, _ in
+            .addSnapshotListener { snapshot, _ in
                 guard let documents = snapshot?.documents else {
                     print("DEBUG: No documents for polls")
                     return
@@ -82,7 +84,8 @@ struct PollService {
             .collection("users")
             .document(uid)
             .collection("voted-polls")
-            .document(pollId).getDocument { snapshot, _ in
+            .document(pollId)
+            .getDocument { snapshot, _ in
                 guard let snapshot = snapshot else { return }
                 completion(snapshot.exists)
             }
