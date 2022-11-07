@@ -10,7 +10,6 @@ import Foundation
 class PollPreviewViewModel: ObservableObject {
     @Published var poll: Poll
     @Published var votes = [Vote]()
-//    @Published var voteCount = 0
     private let service = PollService()
     
     init(poll: Poll) {

@@ -51,6 +51,8 @@
 		A7AE38E729018AA700112329 /* PollPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38E629018AA700112329 /* PollPreviewViewModel.swift */; };
 		A7AE38E929019A0400112329 /* DidVoteScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38E829019A0400112329 /* DidVoteScreenView.swift */; };
 		A7AE38EB29019BBD00112329 /* DidVoteScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38EA29019BBD00112329 /* DidVoteScreenViewModel.swift */; };
+		A7BDDA8D291955A9004331EF /* RankedAppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDDA8C291955A9004331EF /* RankedAppViewModel.swift */; };
+		A7BDDA8F29195794004331EF /* DeeplinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDDA8E29195794004331EF /* DeeplinkManager.swift */; };
 		A7C0C18C289C2D2E0058501F /* VoteScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */; };
 		A7CC3A4229083E5900145BC8 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CC3A4129083E5900145BC8 /* Vote.swift */; };
 /* End PBXBuildFile section */
@@ -87,6 +89,7 @@
 		A716DE55289C21E300D65C8A /* Poll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poll.swift; sourceTree = "<group>"; };
 		A73F421E29082C0500F8C9B3 /* ResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewModel.swift; sourceTree = "<group>"; };
 		A758FECA290822BF00DBD460 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		A76216EA291910B90093CAA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A77A9B5828C0F78200616243 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A77A9B8628C1152800616243 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A7AE38CC28ED631000112329 /* PollService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollService.swift; sourceTree = "<group>"; };
@@ -99,6 +102,8 @@
 		A7AE38E629018AA700112329 /* PollPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollPreviewViewModel.swift; sourceTree = "<group>"; };
 		A7AE38E829019A0400112329 /* DidVoteScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidVoteScreenView.swift; sourceTree = "<group>"; };
 		A7AE38EA29019BBD00112329 /* DidVoteScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidVoteScreenViewModel.swift; sourceTree = "<group>"; };
+		A7BDDA8C291955A9004331EF /* RankedAppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankedAppViewModel.swift; sourceTree = "<group>"; };
+		A7BDDA8E29195794004331EF /* DeeplinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkManager.swift; sourceTree = "<group>"; };
 		A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreenView.swift; sourceTree = "<group>"; };
 		A7CC3A4129083E5900145BC8 /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,12 +178,13 @@
 		A716DE26289C1DA600D65C8A /* ranked */ = {
 			isa = PBXGroup;
 			children = (
+				A76216EA291910B90093CAA8 /* Info.plist */,
 				A7AE38D528F59CD900112329 /* Utilities */,
 				A7A95A8828EC2D1E00081577 /* Services */,
 				A716DE54289C21DA00D65C8A /* Models */,
 				A77A9B8528C1150800616243 /* ViewModels */,
 				A716DE53289C21C400D65C8A /* Views */,
-				A716DE27289C1DA600D65C8A /* RankedApp.swift */,
+				A7BDDA8B2919559C004331EF /* App */,
 				A716DE2B289C1DA800D65C8A /* Assets.xcassets */,
 				A716DE2D289C1DA800D65C8A /* Preview Content */,
 			);
@@ -259,8 +265,18 @@
 			isa = PBXGroup;
 			children = (
 				A7AE38E028FE891D00112329 /* DroppableList.swift */,
+				A7BDDA8E29195794004331EF /* DeeplinkManager.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A7BDDA8B2919559C004331EF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A716DE27289C1DA600D65C8A /* RankedApp.swift */,
+				A7BDDA8C291955A9004331EF /* RankedAppViewModel.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,9 +443,11 @@
 				A73F421F29082C0500F8C9B3 /* ResultsViewModel.swift in Sources */,
 				A7AE38CF28EF391700112329 /* HomeScreenViewModel.swift in Sources */,
 				A7AE38DB28F80A0B00112329 /* VoteScreenViewModel.swift in Sources */,
+				A7BDDA8F29195794004331EF /* DeeplinkManager.swift in Sources */,
 				A7C0C18C289C2D2E0058501F /* VoteScreenView.swift in Sources */,
 				A716DE28289C1DA600D65C8A /* RankedApp.swift in Sources */,
 				A7AE38D128F0186900112329 /* NewPollView.swift in Sources */,
+				A7BDDA8D291955A9004331EF /* RankedAppViewModel.swift in Sources */,
 				A716DE52289C1DEB00D65C8A /* PollPreviewView.swift in Sources */,
 				A7AE38EB29019BBD00112329 /* DidVoteScreenViewModel.swift in Sources */,
 				A716DE56289C21E300D65C8A /* Poll.swift in Sources */,
@@ -601,6 +619,7 @@
 				DEVELOPMENT_TEAM = TR5Z37W278;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ranked/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -630,6 +649,7 @@
 				DEVELOPMENT_TEAM = TR5Z37W278;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ranked/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

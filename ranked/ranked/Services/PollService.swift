@@ -47,6 +47,18 @@ struct PollService {
             }
     }
     
+    func fetchPoll(_ id: String, completion: @escaping(Poll) -> Void) {
+        Firestore.firestore().collection("polls")
+            .document(id)
+            .getDocument { snapshot, _ in
+                guard let poll = snapshot?.data() as? Poll else {
+                    print("DEBUG: No document for vote")
+                    return
+                }
+                completion(poll)
+            }
+    }
+    
     func uploadVote(poll: Poll, options: [String], completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let pollId = poll.id else { return }
@@ -82,7 +94,8 @@ struct PollService {
             .collection("users")
             .document(uid)
             .collection("voted-polls")
-            .document(pollId).getDocument { snapshot, _ in
+            .document(pollId)
+            .getDocument { snapshot, _ in
                 guard let snapshot = snapshot else { return }
                 completion(snapshot.exists)
             }
