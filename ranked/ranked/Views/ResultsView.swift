@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Charts
 
 struct ResultsView: View {
     @ObservedObject var viewModel: ResultsViewModel
@@ -30,6 +31,8 @@ struct ResultsView: View {
                     .font(.headline)
                     .padding(.horizontal)
                 
+                AnimatedChart()
+                
                 Spacer()
                 
                 Button {
@@ -48,10 +51,36 @@ struct ResultsView: View {
         }
         .padding(.top, -40)
     }
+    
+    @ViewBuilder
+    func AnimatedChart() -> some View{
+        Chart{
+            ForEach(sampleResults) { item in
+                BarMark(
+                    x: .value("count", item.count),
+                    y: .value("item", item.name)
+                )
+                .foregroundStyle(by: .value("Shape Color", item.round))
+            }
+        }
+        .onAppear {
+            for (index,_) in sampleResults.enumerated() {
+                DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
+                    withAnimation(.interactiveSpring(
+                        response: 0.8,
+                        dampingFraction: 0.8,
+                        blendDuration: 0.8)) {
+                            sampleResults[index].animate = true
+                        }
+                }
+            }
+        }
+    }
+    
 }
 
-//struct ResultsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ResultsView(poll: onboardingPoll)
-//    }
-//}
+struct ResultsView_Previews: PreviewProvider {
+    static var previews: some View {
+        ResultsView(poll: onboardingPoll, votes: [Vote(ballot: ["vote", "vote"])])
+    }
+}

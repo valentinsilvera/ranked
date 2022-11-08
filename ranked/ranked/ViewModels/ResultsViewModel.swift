@@ -10,6 +10,7 @@ import Foundation
 class ResultsViewModel: ObservableObject {
     @Published var poll: Poll
     @Published var votes: [Vote]
+    @Published var results = sampleResults
     private let service = PollService()
     
     init(poll: Poll, votes: [Vote]) {
