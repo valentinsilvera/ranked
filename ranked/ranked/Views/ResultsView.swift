@@ -26,12 +26,61 @@ struct ResultsView: View {
                     .font(.largeTitle)
                     .padding(.horizontal)
                     .bold()
+                    .foregroundColor(.white)
                 
                 Text("created by \(viewModel.poll.creator)")
                     .font(.headline)
                     .padding(.horizontal)
+                    .foregroundColor(.white)
                 
-                AnimatedChart()
+                Spacer()
+                
+                TabView {
+                    ForEach(0..<3) { i in
+                        VStack(alignment: .leading) {
+                            if i == 0 {
+                                Text("Final Round")
+                                    .font(.title)
+                                    .bold()
+                                    .foregroundColor(.white)
+                                Spacer()
+                                AnimatedChart(results: sampleResultsRound3)
+                                Spacer()
+                            } else if i == 1 {
+                                Text("Second Round")
+                                    .font(.title)
+                                    .bold()
+                                    .foregroundColor(.white)
+                                Spacer()
+                                AnimatedChart(results: sampleResultsRound2)
+                                Spacer()
+                            } else if i == 2 {
+                                Text("First Round")
+                                    .font(.title)
+                                    .bold()
+                                    .foregroundColor(.white)
+                                Spacer()
+                                AnimatedChart(results: sampleResultsRound1)
+                                Spacer()
+                            }
+                        }
+                        .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
+                    }
+                    .padding()
+                }
+                .frame(width: UIScreen.main.bounds.width, height: 500)
+                .tabViewStyle(PageTabViewStyle())
+                
+                Text("Burger 🏆")
+                    .font(.title)
+                    .bold()
+                    .foregroundColor(.white)
+                    .padding([.top, .horizontal])
+                
+                Text("with 11 votes")
+                    .font(.headline)
+                    .padding(.horizontal)
+                    .foregroundColor(.white)
                 
                 Spacer()
                 
@@ -53,28 +102,29 @@ struct ResultsView: View {
     }
     
     @ViewBuilder
-    func AnimatedChart() -> some View{
+    func AnimatedChart(results: [Result]) -> some View{
         Chart{
-            ForEach(sampleResults) { item in
+            ForEach(results) { item in
                 BarMark(
                     x: .value("count", item.count),
                     y: .value("item", item.name)
                 )
-                .foregroundStyle(by: .value("Shape Color", item.round))
             }
         }
-        .onAppear {
-            for (index,_) in sampleResults.enumerated() {
-                DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
-                    withAnimation(.interactiveSpring(
-                        response: 0.8,
-                        dampingFraction: 0.8,
-                        blendDuration: 0.8)) {
-                            sampleResults[index].animate = true
-                        }
-                }
-            }
-        }
+        .chartXScale(domain: ClosedRange(uncheckedBounds: (lower: 0, upper: 15)))
+        .foregroundColor(.white)
+//        .onAppear {
+//            for (index,_) in sampleResults.enumerated() {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
+//                    withAnimation(.interactiveSpring(
+//                        response: 0.8,
+//                        dampingFraction: 0.8,
+//                        blendDuration: 0.8)) {
+//                            sampleResults[index].animate = true
+//                        }
+//                }
+//            }
+//        }
     }
     
 }

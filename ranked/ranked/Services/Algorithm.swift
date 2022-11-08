@@ -111,9 +111,41 @@ struct Result: Identifiable {
     var id = UUID()
     var name: String
     var count: Double
-    var round: Int
     var animate: Bool = false
 }
 
-var sampleResults: [Result] = [Result(name: "Pizza", count: 8, round: 1), Result(name: "Burger", count: 6, round: 1), Result(name: "Pasta", count: 6, round: 1), Result(name: "Sushi", count: 3, round: 1), Result(name: "Pizza", count: 8, round: 2), Result(name: "Burger", count: 9, round: 2), Result(name: "Pasta", count: 6, round: 2), Result(name: "Pizza", count: 10, round: 3), Result(name: "Burger", count: 11, round: 3)]
-//    [Result(name: "Pizza", count: 10), Result(name: "Burger", count: 11)]
+struct Round: Identifiable {
+    var id = UUID()
+//    var roundNumber: Int
+    var results: [Result]
+}
+
+//var sampleResults: [Round] = [
+//    Round(
+////        roundNumber: 1,
+//        results:
+//            [Result(name: "Pizza", count: 8),
+//             Result(name: "Burger", count: 6),
+//             Result(name: "Pasta", count: 6),
+//             Result(name: "Sushi", count: 3)]
+//    ),
+//    Round(
+////        roundNumber: 2,
+//        results:
+//            [Result(name: "Pizza", count: 8),
+//             Result(name: "Burger", count: 8),
+//             Result(name: "Pasta", count: 7)]
+//    ),
+//    Round(
+////        roundNumber: 3,
+//        results:
+//            [Result(name: "Pizza", count: 9),
+//             Result(name: "Burger", count: 11)]
+//    )
+//]
+
+var sampleResultsRound1: [Result] = [Result(name: "Pizza", count: 8), Result(name: "Burger", count: 6), Result(name: "Pasta", count: 6), Result(name: "Sushi", count: 3)]
+
+var sampleResultsRound2: [Result] = [Result(name: "Pizza", count: 8), Result(name: "Burger", count: 9), Result(name: "Pasta", count: 6), Result(name: "Sushi", count: 0)]
+
+var sampleResultsRound3: [Result] = [Result(name: "Pizza", count: 10), Result(name: "Burger", count: 11), Result(name: "Pasta", count: 0), Result(name: "Sushi", count: 0)]
