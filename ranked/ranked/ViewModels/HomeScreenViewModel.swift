@@ -9,12 +9,14 @@ import Foundation
 
 class HomeScreenViewModel: ObservableObject {
     @Published var polls = [Poll]()
-    let service = PollService()
+    let service: PollServiceProtocol
     
-    init() {
+    init(service: PollServiceProtocol = PollService()) {
+        self.service = service
         fetchPolls()
     }
     
+    // fetches the polls using the service and assigns them to the published variable
     func fetchPolls() {
         service.fetchPolls { polls in
             self.polls = polls

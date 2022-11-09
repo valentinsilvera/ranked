@@ -12,7 +12,6 @@
 		A716DE2A289C1DA600D65C8A /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE29289C1DA600D65C8A /* HomeScreenView.swift */; };
 		A716DE2C289C1DA800D65C8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A716DE2B289C1DA800D65C8A /* Assets.xcassets */; };
 		A716DE2F289C1DA800D65C8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A716DE2E289C1DA800D65C8A /* Preview Assets.xcassets */; };
-		A716DE39289C1DA800D65C8A /* rankedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE38289C1DA800D65C8A /* rankedTests.swift */; };
 		A716DE43289C1DA800D65C8A /* rankedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE42289C1DA800D65C8A /* rankedUITests.swift */; };
 		A716DE45289C1DA800D65C8A /* rankedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE44289C1DA800D65C8A /* rankedUITestsLaunchTests.swift */; };
 		A716DE52289C1DEB00D65C8A /* PollPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A716DE51289C1DEB00D65C8A /* PollPreviewView.swift */; };
@@ -52,6 +51,10 @@
 		A7AE38E929019A0400112329 /* DidVoteScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38E829019A0400112329 /* DidVoteScreenView.swift */; };
 		A7AE38EB29019BBD00112329 /* DidVoteScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38EA29019BBD00112329 /* DidVoteScreenViewModel.swift */; };
 		A7BDDA9129198A35004331EF /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDDA9029198A35004331EF /* Algorithm.swift */; };
+		A7BDDA93291ACFCC004331EF /* HomeScreenViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDDA92291ACFCC004331EF /* HomeScreenViewModelTest.swift */; };
+		A7BDDA95291AD03E004331EF /* MockPollService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDDA94291AD03E004331EF /* MockPollService.swift */; };
+		A7BDDA97291BA84F004331EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDDA96291BA84F004331EF /* Constants.swift */; };
+		A7BDDA99291BBB92004331EF /* PollServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDDA98291BBB92004331EF /* PollServiceProtocol.swift */; };
 		A7C0C18C289C2D2E0058501F /* VoteScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */; };
 		A7CC3A4229083E5900145BC8 /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CC3A4129083E5900145BC8 /* Vote.swift */; };
 /* End PBXBuildFile section */
@@ -80,7 +83,6 @@
 		A716DE2B289C1DA800D65C8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A716DE2E289C1DA800D65C8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A716DE34289C1DA800D65C8A /* rankedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rankedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A716DE38289C1DA800D65C8A /* rankedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rankedTests.swift; sourceTree = "<group>"; };
 		A716DE3E289C1DA800D65C8A /* rankedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rankedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A716DE42289C1DA800D65C8A /* rankedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rankedUITests.swift; sourceTree = "<group>"; };
 		A716DE44289C1DA800D65C8A /* rankedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rankedUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -101,6 +103,10 @@
 		A7AE38E829019A0400112329 /* DidVoteScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidVoteScreenView.swift; sourceTree = "<group>"; };
 		A7AE38EA29019BBD00112329 /* DidVoteScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidVoteScreenViewModel.swift; sourceTree = "<group>"; };
 		A7BDDA9029198A35004331EF /* Algorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
+		A7BDDA92291ACFCC004331EF /* HomeScreenViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModelTest.swift; sourceTree = "<group>"; };
+		A7BDDA94291AD03E004331EF /* MockPollService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPollService.swift; sourceTree = "<group>"; };
+		A7BDDA96291BA84F004331EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A7BDDA98291BBB92004331EF /* PollServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollServiceProtocol.swift; sourceTree = "<group>"; };
 		A7C0C18B289C2D2E0058501F /* VoteScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteScreenView.swift; sourceTree = "<group>"; };
 		A7CC3A4129083E5900145BC8 /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -198,7 +204,8 @@
 		A716DE37289C1DA800D65C8A /* rankedTests */ = {
 			isa = PBXGroup;
 			children = (
-				A716DE38289C1DA800D65C8A /* rankedTests.swift */,
+				A7BDDA92291ACFCC004331EF /* HomeScreenViewModelTest.swift */,
+				A7BDDA94291AD03E004331EF /* MockPollService.swift */,
 			);
 			path = rankedTests;
 			sourceTree = "<group>";
@@ -253,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				A7AE38CC28ED631000112329 /* PollService.swift */,
+				A7BDDA98291BBB92004331EF /* PollServiceProtocol.swift */,
 				A7BDDA9029198A35004331EF /* Algorithm.swift */,
 			);
 			path = Services;
@@ -262,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				A7AE38E028FE891D00112329 /* DroppableList.swift */,
+				A7BDDA96291BA84F004331EF /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -360,6 +369,7 @@
 					};
 					A716DE33289C1DA800D65C8A = {
 						CreatedOnToolsVersion = 14.0;
+						LastSwiftMigration = 1410;
 						TestTargetID = A716DE23289C1DA600D65C8A;
 					};
 					A716DE3D289C1DA800D65C8A = {
@@ -435,6 +445,7 @@
 				A7AE38D128F0186900112329 /* NewPollView.swift in Sources */,
 				A7BDDA9129198A35004331EF /* Algorithm.swift in Sources */,
 				A716DE52289C1DEB00D65C8A /* PollPreviewView.swift in Sources */,
+				A7BDDA97291BA84F004331EF /* Constants.swift in Sources */,
 				A7AE38EB29019BBD00112329 /* DidVoteScreenViewModel.swift in Sources */,
 				A716DE56289C21E300D65C8A /* Poll.swift in Sources */,
 				A7AE38E729018AA700112329 /* PollPreviewViewModel.swift in Sources */,
@@ -443,6 +454,7 @@
 				A77A9B8728C1152800616243 /* AuthViewModel.swift in Sources */,
 				A7CC3A4229083E5900145BC8 /* Vote.swift in Sources */,
 				A758FECB290822BF00DBD460 /* ResultsView.swift in Sources */,
+				A7BDDA99291BBB92004331EF /* PollServiceProtocol.swift in Sources */,
 				A7AE38D428F0188500112329 /* NewPollViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,7 +463,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A716DE39289C1DA800D65C8A /* rankedTests.swift in Sources */,
+				A7BDDA95291AD03E004331EF /* MockPollService.swift in Sources */,
+				A7BDDA93291ACFCC004331EF /* HomeScreenViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,15 +670,22 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TR5Z37W278;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.valentinsilvera.rankedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ranked.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ranked";
@@ -677,11 +697,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = TR5Z37W278;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.valentinsilvera.rankedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

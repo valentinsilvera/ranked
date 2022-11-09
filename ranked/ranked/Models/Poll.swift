@@ -9,13 +9,12 @@ import Firebase
 import FirebaseFirestoreSwift
 
 struct Poll: Identifiable, Codable {
-    /// The Firestore document ID is needed to update / delete the document
-    @DocumentID var id: String?
-    let uid: String
+    @DocumentID var id: String? // The Firestore document ID is needed to update / delete the document
+    let uid: String // the user id of the poll creator
     let title: String
     let creator: String
     let options: [String]
-    let timestamp: Timestamp
+    let timestamp: Timestamp?
     let deadline: Date?
     var isClosed: Bool
     let result: String?

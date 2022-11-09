@@ -13,12 +13,12 @@ struct rankedApp: App {
     @StateObject var viewModel = AuthViewModel()
     
     init() {
-        FirebaseApp.configure()
+        FirebaseApp.configure() // signs the user in / listens to the auth state
     }
     
     var body: some Scene {
         WindowGroup {
-            HomeScreenView().environmentObject(viewModel)
+            HomeScreenView().environmentObject(viewModel) // sets the user as an environment variable so it can be accessed from anywhere
         }
     }
 }
