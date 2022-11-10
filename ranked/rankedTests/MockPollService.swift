@@ -6,7 +6,6 @@
 //
 
 @testable import ranked
-import FirebaseFirestoreSwift
 
 struct MockPollService: PollServiceProtocol {
     var mockedPoll1 : Poll = Poll(uid: "uid1",
@@ -32,7 +31,7 @@ struct MockPollService: PollServiceProtocol {
     }
     
     func fetchPolls(completion: @escaping([Poll]) -> Void) {
-        completion([mockedPoll, mockedPoll])
+        completion([mockedPoll1, mockedPoll2])
     }
     
     func uploadVote(poll: Poll, options: [String], completion: @escaping(Bool) -> Void) {
@@ -48,7 +47,7 @@ struct MockPollService: PollServiceProtocol {
     }
     
     func fetchVotes(_ poll: Poll, completion: @escaping([Vote]) -> Void) {
-        completion(["vote1", "vote2"])
+        completion([Vote(ballot: ["vote1"]), Vote(ballot: ["vote 2"])])
     }
     
     func closePoll(poll: Poll, completion: @escaping(Bool) -> Void) {

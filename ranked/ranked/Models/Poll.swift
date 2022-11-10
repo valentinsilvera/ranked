@@ -8,7 +8,7 @@
 import Firebase
 import FirebaseFirestoreSwift
 
-struct Poll: Identifiable, Codable {
+struct Poll: Identifiable, Codable, Equatable {
     @DocumentID var id: String? // The Firestore document ID is needed to update / delete the document
     let uid: String // the user id of the poll creator
     let title: String

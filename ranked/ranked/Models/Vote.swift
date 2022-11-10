@@ -8,7 +8,7 @@
 import Firebase
 import FirebaseFirestoreSwift
 
-struct Vote: Identifiable, Codable {
+struct Vote: Identifiable, Codable, Equatable {
     @DocumentID var id: String? // The Firestore document ID is needed to update / delete the document
     let ballot: [String]
 }

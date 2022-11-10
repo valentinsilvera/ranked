@@ -13,9 +13,10 @@ class DidVoteScreenViewModel: ObservableObject {
     @Published var unranked = [String]()
     @Published var didClosePoll = false
     @Published var isCreator = false
-    let service = PollService()
+    let service: PollServiceProtocol
     
-    init(poll: Poll) {
+    init(poll: Poll, service: PollServiceProtocol = PollService()) {
+        self.service = service
         self.poll = poll
     }
     
