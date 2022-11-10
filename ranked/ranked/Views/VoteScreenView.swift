@@ -10,6 +10,7 @@ import SwiftUI
 struct VoteScreenView: View {
     @ObservedObject var viewModel: VoteScreenViewModel
     @Environment(\.dismiss) private var dismiss
+    // the two following lists store the options as the user ranks them
     @State private var noPreferenceList = [String]()
     @State private var preferenceList = [String]()
     @State private var showConfirmation = false
@@ -20,8 +21,10 @@ struct VoteScreenView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.pink, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
-                .ignoresSafeArea()
+            LinearGradient(colors: [.pink, .purple],
+                           startPoint: .topLeading,
+                           endPoint: .bottomTrailing)
+                .ignoresSafeArea() // background
             
             VStack(alignment: .leading) {
                 Text(viewModel.poll.title)
@@ -51,6 +54,7 @@ struct VoteScreenView: View {
                 
                 Spacer()
                 
+                // only the creator of the poll gets presented this button, due to the destructive nature, it presents a confirmation beforehand
                 if viewModel.isCreator {
                     Button {
                         showConfirmation = true

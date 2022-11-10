@@ -8,7 +8,8 @@
 import Firebase
 import UIKit
 
-struct PollService {
+struct PollService: PollServiceProtocol {
+    // uploads a poll with title, creator and options, as well as a completion handler to check wether the poll was successfully uploaded
     func uploadPoll(title: String, creator: String, options: [String], completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
@@ -20,7 +21,8 @@ struct PollService {
                     "isClosed": false,
                     "results": [""]] as [String : Any]
         
-        Firestore.firestore().collection("polls").document()
+        COLLECTION_POLLS
+            .document()
             .setData(data) { error in
                 if let error {
                     print("DEBUG: Failed with error: \(error.localizedDescription)")
@@ -32,9 +34,9 @@ struct PollService {
             }
     }
     
+    // fetches all polls on the database, the completion handler maps them to a collection of polls object
     func fetchPolls(completion: @escaping([Poll]) -> Void) {
-        Firestore.firestore()
-            .collection("polls")
+        COLLECTION_POLLS
             .order(by: "timestamp", descending: true)
             .getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else {
@@ -47,17 +49,16 @@ struct PollService {
             }
     }
     
+    // uploads a vote for a poll, with options, the completion handler serves as a way to check wether the vote was successfully uploaded
     func uploadVote(poll: Poll, options: [String], completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let pollId = poll.id else { return }
         
-        let userVotesRef = Firestore.firestore()
-            .collection("users")
+        let userVotesRef = COLLECTION_USERS
             .document(uid)
             .collection("voted-polls")
         
-        Firestore.firestore()
-            .collection("polls")
+        COLLECTION_POLLS
             .document(pollId)
             .collection("votes")
             .document(uid)
@@ -74,12 +75,12 @@ struct PollService {
             }
     }
     
+    // checks if a poll is on the "voted-polls" collection in the user collection, the completion handler allows us to see wether the poll id is present in said collection
     func checkIfUserVotedOnPoll(_ poll: Poll, completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let pollId = poll.id else { return }
         
-        Firestore.firestore()
-            .collection("users")
+        COLLECTION_USERS
             .document(uid)
             .collection("voted-polls")
             .document(pollId).getDocument { snapshot, _ in
@@ -88,12 +89,12 @@ struct PollService {
             }
     }
     
+    // checks if a user id is present in a poll's "votes" collection, as the uid is the key value on the vote document
     func checkForUserVoteOnPoll(_ poll: Poll, completion: @escaping([String]) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let pollId = poll.id else { return }
         
-        Firestore.firestore()
-            .collection("polls")
+        COLLECTION_POLLS
             .document(pollId)
             .collection("votes")
             .document(uid)
@@ -109,11 +110,11 @@ struct PollService {
             }
     }
     
+    // retrieves all votes for a given poll, the completion handler gives us an array of Votes
     func fetchVotes(_ poll: Poll, completion: @escaping([Vote]) -> Void) {
         guard let pollId = poll.id else { return }
         
-        Firestore.firestore()
-            .collection("polls")
+        COLLECTION_POLLS
             .document(pollId)
             .collection("votes")
             .getDocuments { snapshot, _ in
@@ -122,16 +123,17 @@ struct PollService {
                     return
                 }
                 
+                // cast the array of documents as Votes
                 let votes = documents.compactMap({ try? $0.data(as: Vote.self)})
                 completion(votes)
             }
     }
     
+    // updates the value of "isClosed" to closed on a poll, the completion handler lets us check that the poll was closed
     func closePoll(poll: Poll, completion: @escaping(Bool) -> Void) {
         guard let pollId = poll.id else { return }
         
-        Firestore.firestore()
-            .collection("polls")
+        COLLECTION_POLLS
             .document(pollId)
             .updateData(["isClosed" : true]) { _ in
                 completion(true)

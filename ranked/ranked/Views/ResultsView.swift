@@ -10,7 +10,7 @@ import Charts
 
 struct ResultsView: View {
     @ObservedObject var viewModel: ResultsViewModel
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss) private var dismiss // used for stacked navigation
     
     init(poll: Poll, votes: [Vote]) {
         self.viewModel = ResultsViewModel(poll: poll, votes: votes)
@@ -35,6 +35,8 @@ struct ResultsView: View {
                 
                 Spacer()
                 
+                // here is where we display the results
+                // TODO: use real results instead of hard-coded ones
                 TabView {
                     ForEach(0..<3) { i in
                         VStack(alignment: .leading) {

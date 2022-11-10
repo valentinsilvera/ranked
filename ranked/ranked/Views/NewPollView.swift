@@ -46,7 +46,7 @@ struct NewPollView: View {
                             }
                         }
                     }
-                    if options.count < 8 {
+                    if options.count < 8 { // currently setting the max amount of options to 8 per poll
                         Button {
                             withAnimation {
                                 options.append("")
@@ -63,6 +63,7 @@ struct NewPollView: View {
                     }
                 }                
                 
+                // this checks that the poll title is filled, as well as the poll containing at least two options, before presenting the button, otherwise just present a grayed-out text label
                 if !title.isEmpty && !creator.isEmpty && options[0] != "" && options[1] != "" {
                     Button {
                         viewModel.uploadPoll(withTitle: title,
@@ -103,6 +104,20 @@ struct NewPollView: View {
 struct NewPollView_Previews: PreviewProvider {
     static var previews: some View {
         NewPollView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14"))
+            .previewDisplayName("iPhone 14")
+        
+        NewPollView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 14 Pro Max"))
+            .previewDisplayName("iPhone 14 Pro Max")
+        
+        NewPollView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone 13 mini"))
+            .previewDisplayName("iPhone 13 mini")
+        
+        NewPollView()
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+            .previewDisplayName("iPhone SE")
     }
 }
 

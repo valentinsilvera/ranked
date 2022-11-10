@@ -10,7 +10,7 @@ import SwiftUI
 struct DidVoteScreenView: View {
     @State private var showConfirmation = false
     @ObservedObject var viewModel: DidVoteScreenViewModel
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss) private var dismiss // used for stacked navigation
     
     init(poll: Poll) {
         self.viewModel = DidVoteScreenViewModel(poll: poll)
@@ -18,7 +18,9 @@ struct DidVoteScreenView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(colors: [.pink, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+            LinearGradient(colors: [.pink, .purple],
+                           startPoint: .topLeading,
+                           endPoint: .bottomTrailing)
                 .ignoresSafeArea()
             
             VStack(alignment: .leading) {
@@ -33,6 +35,7 @@ struct DidVoteScreenView: View {
                 
                 List{
                     Section(header: Text("Ranked options:")) {
+                        // checks if there are ranked options and displays a user-friendly message in case they haven't ranked any; else, displays the ranked options
                         if viewModel.ranked.count == 0 {
                             Text("You didn't rank any of the options")
                                 .foregroundColor(.gray)
@@ -55,6 +58,7 @@ struct DidVoteScreenView: View {
                 
                 Spacer()
                 
+                // only the creator of the poll gets presented this button, due to the destructive nature, it presents a confirmation beforehand
                 if viewModel.isCreator {
                     Button {
                         showConfirmation = true
@@ -96,6 +100,7 @@ struct DidVoteScreenView: View {
             }
         }
         .padding(.top, -40)
+        // waits for the view to load to fetch votes, to save on networking load
         .onAppear {
             viewModel.checkForUserVoteOnPoll()
             viewModel.checkIfUserCreatedPoll()

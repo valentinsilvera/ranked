@@ -12,9 +12,10 @@ class VoteScreenViewModel: ObservableObject {
     @Published var didUploadVote = false
     @Published var didClosePoll = false
     @Published var isCreator = false
-    let service = PollService()
+    let service: PollServiceProtocol
     
-    init(poll: Poll) {
+    init(poll: Poll, service: PollServiceProtocol = PollService()) {
+        self.service = service
         self.poll = poll
     }
     
@@ -31,7 +32,6 @@ class VoteScreenViewModel: ObservableObject {
     func checkIfUserCreatedPoll() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         if self.poll.uid == uid {
-            print("DEBUG: \(self.poll.uid == uid)")
             self.isCreator = true
         }
     }

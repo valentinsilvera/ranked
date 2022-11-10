@@ -10,10 +10,10 @@ import Foundation
 class PollPreviewViewModel: ObservableObject {
     @Published var poll: Poll
     @Published var votes = [Vote]()
-//    @Published var voteCount = 0
-    private let service = PollService()
+    let service: PollServiceProtocol
     
-    init(poll: Poll) {
+    init(poll: Poll, service: PollServiceProtocol = PollService()) {
+        self.service = service
         self.poll = poll
         checkIfUserVotedOnPoll()
         fetchVotes()
