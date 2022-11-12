@@ -90,7 +90,7 @@ struct ResultsView: View {
                 }
             }
         }
-        .chartXScale(domain: ClosedRange(uncheckedBounds: (lower: 0, upper: 10)))
+        .chartXScale(domain: ClosedRange(uncheckedBounds: (lower: 0, upper: 13)))
         .foregroundColor(.white)
     }
     
