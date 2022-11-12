@@ -18,6 +18,7 @@
 		A758FECB290822BF00DBD460 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A758FECA290822BF00DBD460 /* ResultsView.swift */; };
 		A77A9B5928C0F78200616243 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A77A9B5828C0F78200616243 /* GoogleService-Info.plist */; };
 		A77A9B8728C1152800616243 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77A9B8628C1152800616243 /* AuthViewModel.swift */; };
+		A7823F7E291FF3B8006C3C78 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7823F7D291FF3B8006C3C78 /* Round.swift */; };
 		A7AE38CD28ED631000112329 /* PollService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38CC28ED631000112329 /* PollService.swift */; };
 		A7AE38CF28EF391700112329 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38CE28EF391700112329 /* HomeScreenViewModel.swift */; };
 		A7AE38D128F0186900112329 /* NewPollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38D028F0186900112329 /* NewPollView.swift */; };
@@ -28,7 +29,7 @@
 		A7AE38E729018AA700112329 /* PollPreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38E629018AA700112329 /* PollPreviewViewModel.swift */; };
 		A7AE38E929019A0400112329 /* DidVoteScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38E829019A0400112329 /* DidVoteScreenView.swift */; };
 		A7AE38EB29019BBD00112329 /* DidVoteScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38EA29019BBD00112329 /* DidVoteScreenViewModel.swift */; };
-		A7BDDA9129198A35004331EF /* Algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDDA9029198A35004331EF /* Algorithm.swift */; };
+		A7BDDA9129198A35004331EF /* Count.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDDA9029198A35004331EF /* Count.swift */; };
 		A7BDDA93291ACFCC004331EF /* HomeScreenViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDDA92291ACFCC004331EF /* HomeScreenViewModelTest.swift */; };
 		A7BDDA95291AD03E004331EF /* MockPollService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDDA94291AD03E004331EF /* MockPollService.swift */; };
 		A7BDDA97291BA84F004331EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7BDDA96291BA84F004331EF /* Constants.swift */; };
@@ -68,6 +69,7 @@
 		A758FECA290822BF00DBD460 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		A77A9B5828C0F78200616243 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A77A9B8628C1152800616243 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		A7823F7D291FF3B8006C3C78 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
 		A7AE38CC28ED631000112329 /* PollService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollService.swift; sourceTree = "<group>"; };
 		A7AE38CE28EF391700112329 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		A7AE38D028F0186900112329 /* NewPollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPollView.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 		A7AE38E629018AA700112329 /* PollPreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollPreviewViewModel.swift; sourceTree = "<group>"; };
 		A7AE38E829019A0400112329 /* DidVoteScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidVoteScreenView.swift; sourceTree = "<group>"; };
 		A7AE38EA29019BBD00112329 /* DidVoteScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DidVoteScreenViewModel.swift; sourceTree = "<group>"; };
-		A7BDDA9029198A35004331EF /* Algorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithm.swift; sourceTree = "<group>"; };
+		A7BDDA9029198A35004331EF /* Count.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Count.swift; sourceTree = "<group>"; };
 		A7BDDA92291ACFCC004331EF /* HomeScreenViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModelTest.swift; sourceTree = "<group>"; };
 		A7BDDA94291AD03E004331EF /* MockPollService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPollService.swift; sourceTree = "<group>"; };
 		A7BDDA96291BA84F004331EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		A716DE26289C1DA600D65C8A /* ranked */ = {
 			isa = PBXGroup;
 			children = (
+				A7823F7C291FF38F006C3C78 /* Algorithm */,
 				A7AE38D528F59CD900112329 /* Utilities */,
 				A7A95A8828EC2D1E00081577 /* Services */,
 				A716DE54289C21DA00D65C8A /* Models */,
@@ -206,12 +209,20 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		A7823F7C291FF38F006C3C78 /* Algorithm */ = {
+			isa = PBXGroup;
+			children = (
+				A7BDDA9029198A35004331EF /* Count.swift */,
+				A7823F7D291FF3B8006C3C78 /* Round.swift */,
+			);
+			path = Algorithm;
+			sourceTree = "<group>";
+		};
 		A7A95A8828EC2D1E00081577 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				A7AE38CC28ED631000112329 /* PollService.swift */,
 				A7BDDA98291BBB92004331EF /* PollServiceProtocol.swift */,
-				A7BDDA9029198A35004331EF /* Algorithm.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -340,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7823F7E291FF3B8006C3C78 /* Round.swift in Sources */,
 				A7AE38E328FFF47E00112329 /* User.swift in Sources */,
 				A716DE2A289C1DA600D65C8A /* HomeScreenView.swift in Sources */,
 				A7AE38E128FE891D00112329 /* DroppableList.swift in Sources */,
@@ -349,7 +361,7 @@
 				A7C0C18C289C2D2E0058501F /* VoteScreenView.swift in Sources */,
 				A716DE28289C1DA600D65C8A /* RankedApp.swift in Sources */,
 				A7AE38D128F0186900112329 /* NewPollView.swift in Sources */,
-				A7BDDA9129198A35004331EF /* Algorithm.swift in Sources */,
+				A7BDDA9129198A35004331EF /* Count.swift in Sources */,
 				A716DE52289C1DEB00D65C8A /* PollPreviewView.swift in Sources */,
 				A7BDDA97291BA84F004331EF /* Constants.swift in Sources */,
 				A7AE38EB29019BBD00112329 /* DidVoteScreenViewModel.swift in Sources */,
