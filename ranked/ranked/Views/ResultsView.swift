@@ -36,35 +36,10 @@ struct ResultsView: View {
                 Spacer()
                 
                 // here is where we display the results
-                // TODO: use real results instead of hard-coded ones
                 TabView {
                     ForEach(0..<3) { i in
                         VStack(alignment: .leading) {
-                            if i == 0 {
-                                Text("Final Round")
-                                    .font(.title)
-                                    .bold()
-                                    .foregroundColor(.white)
-                                Spacer()
-                                AnimatedChart(results: sampleResultsRound3)
-                                Spacer()
-                            } else if i == 1 {
-                                Text("Second Round")
-                                    .font(.title)
-                                    .bold()
-                                    .foregroundColor(.white)
-                                Spacer()
-                                AnimatedChart(results: sampleResultsRound2)
-                                Spacer()
-                            } else if i == 2 {
-                                Text("First Round")
-                                    .font(.title)
-                                    .bold()
-                                    .foregroundColor(.white)
-                                Spacer()
-                                AnimatedChart(results: sampleResultsRound1)
-                                Spacer()
-                            }
+                            AnimatedChart(round: sampleResults.history)
                         }
                         .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                     }
@@ -104,29 +79,19 @@ struct ResultsView: View {
     }
     
     @ViewBuilder
-    func AnimatedChart(results: [Result]) -> some View{
+    func AnimatedChart(round: [Round]) -> some View{
         Chart{
-            ForEach(results) { item in
-                BarMark(
-                    x: .value("count", item.count),
-                    y: .value("item", item.name)
-                )
+            ForEach(round) { result in
+                ForEach(result.result.sorted(by: >), id: \.key) { key, value in
+                    BarMark(
+                        x: .value("count", value),
+                        y: .value("item", key)
+                    )
+                }
             }
         }
-        .chartXScale(domain: ClosedRange(uncheckedBounds: (lower: 0, upper: 15)))
+        .chartXScale(domain: ClosedRange(uncheckedBounds: (lower: 0, upper: 10)))
         .foregroundColor(.white)
-//        .onAppear {
-//            for (index,_) in sampleResults.enumerated() {
-//                DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.05) {
-//                    withAnimation(.interactiveSpring(
-//                        response: 0.8,
-//                        dampingFraction: 0.8,
-//                        blendDuration: 0.8)) {
-//                            sampleResults[index].animate = true
-//                        }
-//                }
-//            }
-//        }
     }
     
 }
