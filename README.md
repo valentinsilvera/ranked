@@ -33,7 +33,7 @@ The entire project has been written using Swift:
 - [Swift](https://github.com/apple/swift)
 
 The authentication and database were done with Firebase:
-- [Firebase](https://github.com/firebase/
+- [Firebase](https://github.com/firebase/)
 
 The UI has been written in SwiftUI without any other libraries.
 
