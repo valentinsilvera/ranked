@@ -46,9 +46,8 @@ class Count {
         getRounds()
     }
     
-    /**
-     Loops through all the rounds to create a history of votes on each round
-     */
+    
+    /// Loops through all the rounds to create a history of votes on each round
     func getRounds() {
         /// An internal check to know when to stop the loop
         var isFinalRound = false

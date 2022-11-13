@@ -19,6 +19,7 @@
 		A77A9B5928C0F78200616243 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A77A9B5828C0F78200616243 /* GoogleService-Info.plist */; };
 		A77A9B8728C1152800616243 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77A9B8628C1152800616243 /* AuthViewModel.swift */; };
 		A7823F7E291FF3B8006C3C78 /* Round.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7823F7D291FF3B8006C3C78 /* Round.swift */; };
+		A7823F8029202991006C3C78 /* CountTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7823F7F29202991006C3C78 /* CountTest.swift */; };
 		A7AE38CD28ED631000112329 /* PollService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38CC28ED631000112329 /* PollService.swift */; };
 		A7AE38CF28EF391700112329 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38CE28EF391700112329 /* HomeScreenViewModel.swift */; };
 		A7AE38D128F0186900112329 /* NewPollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AE38D028F0186900112329 /* NewPollView.swift */; };
@@ -70,6 +71,7 @@
 		A77A9B5828C0F78200616243 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A77A9B8628C1152800616243 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A7823F7D291FF3B8006C3C78 /* Round.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Round.swift; sourceTree = "<group>"; };
+		A7823F7F29202991006C3C78 /* CountTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountTest.swift; sourceTree = "<group>"; };
 		A7AE38CC28ED631000112329 /* PollService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollService.swift; sourceTree = "<group>"; };
 		A7AE38CE28EF391700112329 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		A7AE38D028F0186900112329 /* NewPollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPollView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				A7BDDABA291D1743004331EF /* DidVoteScreenViewModelTest.swift */,
 				A7BDDABC291D18D9004331EF /* NewPollViewModelTest.swift */,
 				A7F6A1E9291D250600A09150 /* PollPreviewViewModelTest.swift */,
+				A7823F7F29202991006C3C78 /* CountTest.swift */,
 			);
 			path = rankedTests;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7823F8029202991006C3C78 /* CountTest.swift in Sources */,
 				A7F6A1EA291D250600A09150 /* PollPreviewViewModelTest.swift in Sources */,
 				A7BDDABB291D1743004331EF /* DidVoteScreenViewModelTest.swift in Sources */,
 				A7BDDABD291D18D9004331EF /* NewPollViewModelTest.swift in Sources */,
