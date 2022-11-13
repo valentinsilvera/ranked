@@ -6,6 +6,9 @@ It's a native iOS app that allows people to quickly create polls and vote on the
 This document aims to give an short overview about the techstack. The complete Technical Document is available [here](docs/docs.pdf).
 Most importantly, the reader gets to know how to install and run the project locally.
 
+### Demo Video of the project
+
+[Available on YouTube.](https://www.youtube.com/watch?v=_S8tDS7wRCE)
 
 ### The algorithm
 All the documentation was done inline [here](./ranked/ranked/Algorithm/Count.swift), when using it you can just Opt+click any methods, or variables to get all the information.
