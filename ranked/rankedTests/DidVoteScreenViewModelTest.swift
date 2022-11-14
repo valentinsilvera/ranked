@@ -18,9 +18,7 @@ final class DidVoteScreenViewModelTest: XCTestCase {
                                  creator: "Creator 1",
                                  options: ["Option 1", "Option 2"],
                                  timestamp: nil,
-                                 deadline: nil,
-                                 isClosed: false,
-                                 result: nil)
+                                 isClosed: false)
     
     var mockedVote = ["vote1", "vote2"]
     

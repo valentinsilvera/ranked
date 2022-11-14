@@ -8,7 +8,10 @@
 import FirebaseFirestoreSwift
 
 struct User: Identifiable, Decodable {
-    @DocumentID var id: String? // The Firestore document ID is needed to update / delete the document
+    /// The Firestore document ID is needed to update / delete the document
+    @DocumentID var id: String?
+    /// A subcollection with the IDs of the polls that the user voted on
     var pollsParticipated: [String]
+    /// A subcollection with the IDs of the polls that the user created
     var pollsCreated: [String]
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// A protocol to inject the PollService. The methods are explained in the PollService
 protocol PollServiceProtocol {
     func uploadPoll(title: String, creator: String, options: [String], completion: @escaping(Bool) -> Void)
     

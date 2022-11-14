@@ -15,13 +15,12 @@ final class CountTest: XCTestCase {
     
     func testCount() {
         // given
-        let sampleVotesWithTie = [
+        let sampleVotes = [
             Vote(ballot: ["pizza", "burger", "sushi", "ramen"]),
             Vote(ballot: ["ramen", "sushi",]),
             Vote(ballot: ["ramen", "pizza",]),
             Vote(ballot: ["burger", "pizza", "ramen"]),
             Vote(ballot: ["sushi", "burger"]),
-            Vote(ballot: ["burger", "sushi"]),
             Vote(ballot: ["burger", "sushi"]),
             Vote(ballot: ["pizza", "burger", "sushi"]),
             Vote(ballot: ["pizza", "burger", "sushi"])
@@ -30,7 +29,7 @@ final class CountTest: XCTestCase {
         let expectedResult = "pizza"
         
         // when
-        let sampleResults = Count(votes: sampleVotesWithTie)
+        let sampleResults = Count(votes: sampleVotes)
         
         //then
         XCTAssertEqual(sampleResults.winner.first?.key, expectedResult)

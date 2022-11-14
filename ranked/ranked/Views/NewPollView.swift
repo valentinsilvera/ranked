@@ -63,7 +63,7 @@ struct NewPollView: View {
                     }
                 }                
                 
-                // this checks that the poll title is filled, as well as the poll containing at least two options, before presenting the button, otherwise just present a grayed-out text label
+                /// This checks that the poll title is filled, as well as the poll containing at least two options, before presenting the button, otherwise just present a grayed-out text label
                 if !title.isEmpty && !creator.isEmpty && options[0] != "" && options[1] != "" {
                     Button {
                         viewModel.uploadPoll(withTitle: title,

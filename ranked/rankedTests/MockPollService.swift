@@ -13,18 +13,14 @@ struct MockPollService: PollServiceProtocol {
                                  creator: "Creator 1",
                                  options: ["Option 1", "Option 2"],
                                  timestamp: nil,
-                                 deadline: nil,
-                                 isClosed: false,
-                                 result: nil)
+                                 isClosed: false)
     
     var mockedPoll2 : Poll = Poll(uid: "uid2",
                                   title: "Mocked Poll 2",
                                   creator: "Creator 2",
                                   options: ["Option 1", "Option 2"],
                                   timestamp: nil,
-                                  deadline: nil,
-                                  isClosed: false,
-                                  result: nil)
+                                  isClosed: false)
     
     func uploadPoll(title: String, creator: String, options: [String], completion: @escaping(Bool) -> Void) {
         completion(true)
