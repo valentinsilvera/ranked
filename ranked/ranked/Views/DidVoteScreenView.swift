@@ -35,7 +35,7 @@ struct DidVoteScreenView: View {
                 
                 List{
                     Section(header: Text("Ranked options:")) {
-                        // checks if there are ranked options and displays a user-friendly message in case they haven't ranked any; else, displays the ranked options
+                        /// Checks if there are ranked options and displays a user-friendly message in case they haven't ranked any; else, displays the ranked options
                         if viewModel.ranked.count == 0 {
                             Text("You didn't rank any of the options")
                                 .foregroundColor(.gray)
@@ -58,7 +58,7 @@ struct DidVoteScreenView: View {
                 
                 Spacer()
                 
-                // only the creator of the poll gets presented this button, due to the destructive nature, it presents a confirmation beforehand
+                /// Only the creator of the poll gets presented this button, due to the destructive nature, it presents a confirmation beforehand
                 if viewModel.isCreator {
                     Button {
                         showConfirmation = true
@@ -100,7 +100,7 @@ struct DidVoteScreenView: View {
             }
         }
         .padding(.top, -40)
-        // waits for the view to load to fetch votes, to save on networking load
+        /// Waits for the view to load to fetch votes, to save on networking load
         .onAppear {
             viewModel.checkForUserVoteOnPoll()
             viewModel.checkIfUserCreatedPoll()

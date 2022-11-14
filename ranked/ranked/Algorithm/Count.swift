@@ -122,6 +122,7 @@ extension Collection where Indices.Iterator.Element == Index {
     }
 }
 
+/// votes used in the current implementation of the app due to time constraints
 let sampleVotes = [
     Vote(ballot: ["pizza", "burger", "sushi", "ramen"]),
     Vote(ballot: ["ramen", "sushi",]),

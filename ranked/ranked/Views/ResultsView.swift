@@ -35,10 +35,11 @@ struct ResultsView: View {
                 
                 Spacer()
                 
-                // here is where we display the results
+                /// Here is where we display the results
                 TabView {
                     ForEach(0..<3) { i in
                         VStack(alignment: .leading) {
+                            // TODO: replace sample results with real results
                             AnimatedChart(round: sampleResults.history)
                         }
                         .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))

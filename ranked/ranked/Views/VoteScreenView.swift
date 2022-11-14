@@ -10,7 +10,7 @@ import SwiftUI
 struct VoteScreenView: View {
     @ObservedObject var viewModel: VoteScreenViewModel
     @Environment(\.dismiss) private var dismiss
-    // the two following lists store the options as the user ranks them
+    /// The two following lists store the options as the user ranks them
     @State private var noPreferenceList = [String]()
     @State private var preferenceList = [String]()
     @State private var showConfirmation = false
@@ -54,7 +54,7 @@ struct VoteScreenView: View {
                 
                 Spacer()
                 
-                // only the creator of the poll gets presented this button, due to the destructive nature, it presents a confirmation beforehand
+                /// Only the creator of the poll gets presented this button, due to the destructive nature, it presents a confirmation beforehand
                 if viewModel.isCreator {
                     Button {
                         showConfirmation = true
@@ -107,7 +107,7 @@ struct VoteScreenView: View {
                 }
             }
         }
-        // this sets instance properties that need other instance properties initialized before
+        /// This sets instance properties that need other instance properties initialized before
         .onAppear {
             noPreferenceList = viewModel.poll.options
             viewModel.checkIfUserCreatedPoll()
